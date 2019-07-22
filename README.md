@@ -1,35 +1,14 @@
-<<<<<<< HEAD
-# ngx-express-typescript-starter
-An Angular 8 and Node Express Typescript Starter Kit
-
-> Converting backend js files to ts files with typescript class format and redesigned express routes and it's api calls.
+# task-tracker
+An Angular 8 and Node Express Typescript Task Tracker System
 
 
 #### Main Dev Tools Used
 `Angular 8` `Angular CLI 8` `Node` `Express` `Typescript` `ES6` `Babel 7`
 
-#### Clone the project
-` $ git clone https://github.com/KShewengerz/ngx-express-typescript-starter`
-
-#### NOTE
-##### 1.) Clone the project. Do not perform `$ npm install ngx-express-typescript-starter` 
-- As this doesn't support a shell script yet. Thus, will only end up on your node_modules
-
 ```
 Github Repo:
-git clone https://github.com/KShewengerz/ngx-express-typescript-starter
+git clone https://github.com/earlhansg/task-tracker
 ```
-
-##### 2.) If ever you want to install it via `$ npm`. Consider these things after installing it: 
-
-```
-1.) Copy the ngx-express-typescript-starter directory from your node_modules
-2.) Paste the said directory outside of your node_modules 
-Or copy the whole directory and separate it from your current directory making the ngx-express-typescript-starter directory as your current root directory.
-4.) Rename the ngx-express-typescript-starter directory to your preferred project name
-5.) Edit your package.json to the actual clean format. Be sure to preserve the script commands, dependencies and devDependencies
-```
-
 
 #### How to run
 
@@ -41,21 +20,6 @@ Or copy the whole directory and separate it from your current directory making t
  $ npm run start          - Runs both angular and express
 ````
 
-#### Incase: Angular Spec Bug
-If you will stumble with this error while running "npm run express:start"
-
-```
-public/app/e2e/src/app.e2e-spec.ts(13,41): error TS2345: Argument of type '"Welcome to app!"' is not assignable to parameter of type 'Expected<Promise<string>>'.
-```
-
-Just modify the /public/app/e2e/src/app.e2e-spec.ts line 13 
-
-```
-from : expect(page.getTitleText()).toEqual('Welcome to app!');
-to : expect<any>(page.getTitleText()).toEqual('Welcome to app!');
-
-Adding type <any>
-```
 
 #### Change Existing Angular App 
 If you want to remove the existing public/app angular directory and generate other angular app with angular your cli version. These are some notes to consider:
@@ -107,6 +71,3 @@ by updating both the .babelrc and tsconfig.json of express or angular
 ```
  
 
-=======
-# task-tracker
->>>>>>> 3c4bf8d04e9bd9c85e1a08fee17687747a2424d9
