@@ -1,7 +1,7 @@
 {
-  "name": "ngx-express-typescript-starter",
+  "name": "task-tracker",
   "version": "3.0.3",
-  "description": "An Angular and Node Express Typescript starter",
+  "description": "An Angular and Node Express Task Tracker System",
   "main": "index.js",
   "scripts": {
     "install:all": "npm install && cd ./public/app && npm install",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KShewengerz/ngx-express-typescript-starter.git"
+    "url": "git+https://github.com/earlhansg/task-tracker.git"
   },
   "keywords": [
     "angular",
@@ -21,12 +21,8 @@
     "express typescript",
     "angular express"
   ],
-  "author": "Kristy Mae Almuete <kristyalmuete@gmail.com>",
+  "author": "Earl Hans Pelin Genoso <earlhansg@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/KShewengerz/ngx-express-typescript-starter/issues"
-  },
-  "homepage": "https://github.com/KShewengerz/ngx-express-typescript-starter#readme",
   "dependencies": {
     "babel-plugin-module-resolver": "^3.1.3",
     "bcrypt-nodejs": "0.0.3",
