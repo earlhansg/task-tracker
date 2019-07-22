@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ngx-express-typescript-starter
 An Angular 8 and Node Express Typescript Starter Kit
 
@@ -106,3 +107,6 @@ by updating both the .babelrc and tsconfig.json of express or angular
 ```
  
 
+=======
+# task-tracker
+>>>>>>> 3c4bf8d04e9bd9c85e1a08fee17687747a2424d9
