@@ -1,7 +1,7 @@
 {
   "name": "task-tracker",
   "version": "3.0.3",
-  "description": "An Angular and Node Express Task Tracker System",
+  "description": "An Angular and Node Express Task Tracker",
   "main": "index.js",
   "scripts": {
     "install:all": "npm install && cd ./public/app && npm install",
