@@ -17,9 +17,10 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "@app/*": ["src/app/*"]
-    }
+    ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

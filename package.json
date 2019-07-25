@@ -4,8 +4,8 @@
   "description": "An Angular and Node Express Task Tracker System",
   "main": "index.js",
   "scripts": {
-    "install:all": "npm install && cd ./public/app && npm install",
-    "ng:start": "cd ./public/app && tsc && npm start",
+    "install:all": "npm install && cd ./public/task-app && npm install",
+    "ng:start": "cd ./public/task-app && tsc && npm start",
     "node:start": "tsc-watch --onSuccess 'nodemon --exec babel-node ./bin/www'",
     "start": "concurrently \"npm run node:start\"  \"npm run ng:start\""
   },
