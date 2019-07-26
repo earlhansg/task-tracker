@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { AngularMaterialModule } from '../angular-material.module';
+import { AngularMaterialModule } from '@shared/angular-material.module';
 
 
 
