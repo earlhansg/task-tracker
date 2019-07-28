@@ -1,0 +1,22 @@
+@import '../../../../assets/styles/main.scss';
+
+.container {
+    background-color: $light-pink;
+  
+    .content {
+        height: 100vh;
+
+        &__mini-1 {
+            background-color: $gray;
+        }
+        &__mini-2 {
+            background-color: $light-gray;
+        }
+    }
+}
+
+.content__mini-1, .content__mini-2 {
+    width: 320px;
+    max-width: 100%;
+    padding: 45px;
+}
