@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { materials } from '@shared/dependencies/shared-materials';
+import { materials } from '@app/shared/dependencies/shared-materials';
 
 
 @NgModule({
