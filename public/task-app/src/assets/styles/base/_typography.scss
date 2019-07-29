@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+@import '../utils/font';
+
+
+$sans-serif: sans-serif;
+$Montserrat: Montserrat, #{$sans-serif};
+$Montserrat-Bold: Montserrat-Regular, #{$sans-serif};
+
+@include font-face('Montserrat', '/assets/fonts/Montserrat-Light.ttf', 'truetype');
+@include font-face('Montserrat-Regular', '/assets/fonts/Montserrat-Regular.ttf', 'truetype');
+
+$custom-typography: mat-typography-config($font-family: 'Montserrat, #{$sans-serif}');
+
+@include mat-base-typography($custom-typography);
+
+@include mat-checkbox-typography($custom-typography);
+
+@include angular-material-typography($custom-typography);
+
+@include mat-core($custom-typography);

@@ -1,0 +1,17 @@
+@import 'typography';
+@import '../utils/font';
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  font-family: mat-font-family($custom-typography);
+}
+
+.spacer { flex: 1 1 auto; }
+
+.cursor-pointer { cursor: pointer; }
