@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 // Component
 import { HomeComponent } from '@app/home/containers/home/home.component';
+import { LoginSignupComponent } from '@app/home/components/login-signup/login-signup.component';
 
 // Modules
 import { HomeRouting } from '@app/home/home-routing.module';
@@ -19,7 +20,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    LoginSignupComponent
   ],
 })
 export class HomeModule { }
