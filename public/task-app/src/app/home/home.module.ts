@@ -10,7 +10,6 @@ import { HomeRouting } from '@app/home/home-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 @NgModule({
   imports: [
     CommonModule,

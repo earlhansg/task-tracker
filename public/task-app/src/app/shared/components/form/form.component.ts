@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {FormlyFieldConfig} from '@ngx-formly/core';
-
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class FormComponent {
   form = new FormGroup({});
   model = { email: 'email@gmail.com' };
   fields: FormlyFieldConfig[] = [{
@@ -22,9 +21,8 @@ export class HomeComponent implements OnInit {
     }
   }];
 
-  ngOnInit() {}
-
   submit(model) {
     console.log(model);
   }
+
 }
