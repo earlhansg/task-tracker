@@ -1,0 +1,13 @@
+<mat-tab-group class="text-center"
+               (selectedTabChange)="selectTab($event.index)">
+
+  <mat-tab  *ngFor="let tab of tabs"
+            [label]="tab.label">
+
+    <app-form [buttonLabel]="tab.buttonLabel"
+              [fields]="tab.fields"
+              (submitted)="onSubmittedForm($event)"></app-form>
+
+  </mat-tab>
+
+</mat-tab-group>
