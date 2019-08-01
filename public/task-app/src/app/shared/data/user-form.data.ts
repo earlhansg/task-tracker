@@ -40,14 +40,5 @@ export const signUpFormFields: FormlyFieldConfig[] = [
       placeholder: 'Password',
       required: true,
     }
-  },
-  {
-    key: 'confirmPassword',
-    type: 'input',
-    templateOptions: {
-      type: 'password',
-      placeholder: 'Confirm Password',
-      required: true,
-    }
   }
 ];

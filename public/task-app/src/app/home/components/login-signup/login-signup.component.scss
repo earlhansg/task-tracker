@@ -1,0 +1,60 @@
+.mat-tab-group {
+    align-items: center;
+    margin-top: 20px;
+  
+    // /deep/.mat-tab-header {
+    //   border-bottom: unset !important;
+  
+    //   .mat-tab-label {
+    //     min-width: 100px !important;
+    //     padding: 0 15px !important;
+    //     height: 30px !important;
+    //     opacity: unset;
+    //     background-color: #ebebeb;
+    //     color: #636363;
+  
+    //     &.mat-tab-label-active {
+    //       background-color: $blue !important;
+    //       color: white !important;
+    //       font-weight: bold;
+    //     }
+  
+    //     .mat-tab-label-content { font-size: 12px !important; }
+    //   }
+    // }
+  
+    // /deep/.mat-tab-body-wrapper {
+    //   width: 100%;
+    //   margin-top: 40px;
+  
+    //   .mat-tab-body { padding: 0 10px; }
+    // }
+  }
+
+  ::ng-deep {
+    .mat-tab-body-wrapper {
+          width: 100%;
+          margin-top: 40px;
+      
+          .mat-tab-body { padding: 0 10px; }
+    }
+    .mat-tab-header {
+          border-bottom: unset !important;
+      
+          .mat-tab-label {
+            min-width: 100px !important;
+            padding: 0 15px !important;
+            height: 30px !important;
+            opacity: unset;
+            background-color: #ebebeb;
+            color: #636363;
+      
+            &.mat-tab-label-active {
+              color: white !important;
+              font-weight: bold;
+            }
+      
+            .mat-tab-label-content { font-size: 12px !important; }
+          }
+        }
+  }

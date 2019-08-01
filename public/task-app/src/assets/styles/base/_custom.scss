@@ -10,6 +10,7 @@
 body {
   height: 100%;
   font-family: mat-font-family($custom-typography);
+  overflow: hidden;
 }
 
 .spacer { flex: 1 1 auto; }
