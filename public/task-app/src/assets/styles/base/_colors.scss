@@ -1,10 +1,15 @@
 $pink: #E91E63;
 $gray: #aaaaaa;
+$white: #ffffff;
 
 $light-pink: lighten($pink, 40%);
 $light-gray: #ebebeb;
 
-$mat-custom-blue: (
+$box-shadow: #777;
+$bg-header: lighten($pink, 15%);
+
+
+$mat-custom-pink: (
   50 : #FCE4EC,
   100 : #F8BBD0,
   200 : #F48FB1,

@@ -7,16 +7,22 @@
         height: 100vh;
 
         &__mini-1 {
-            background-color: $gray;
+            background-color: $white;
+            z-index: 200;
         }
         &__mini-2 {
-            background-color: $light-gray;
+            background-color: $bg-header;
         }
     }
 }
 
 .content__mini-1, .content__mini-2 {
     width: 320px;
+    height: 47%;
     max-width: 100%;
     padding: 45px;
+}
+
+.header {
+    height: 100%;
 }
