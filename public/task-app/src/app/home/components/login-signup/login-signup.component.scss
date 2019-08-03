@@ -1,3 +1,5 @@
+@import '../../../../assets/styles/main.scss';
+
 .mat-tab-group {
     align-items: center;
     margin-top: 20px;
@@ -7,7 +9,7 @@
   ::ng-deep {
     .mat-tab-body-wrapper {
           width: 100%;
-          margin-top: 40px;
+          margin-top: 30px;
       
           .mat-tab-body { padding: 0 10px; }
     }
@@ -19,12 +21,11 @@
             padding: 0 15px !important;
             height: 30px !important;
             opacity: unset;
-            background-color: #ebebeb;
+            background-color: $light-gray;
             color: #636363;
       
             &.mat-tab-label-active {
-              color: white !important;
-              font-weight: bold;
+              font-weight: 600;
             }
       
             .mat-tab-label-content { font-size: 12px !important; }
