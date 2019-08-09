@@ -1,8 +1,16 @@
 @import '../../../../assets/styles/main.scss';
 
+$start-breakpoint: 960px;
+
 .mat-tab-group {
     align-items: center;
     margin-top: 20px;
+
+    @include media($start-breakpoint) {
+      & {
+        margin-top: 10px;
+      }
+    } 
   
 }
 
