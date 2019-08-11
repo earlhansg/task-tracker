@@ -1,1 +1,19 @@
-<app-sidebar></app-sidebar>
+<mat-sidenav-container class="container">
+    <mat-sidenav class="task-list-sidenav"
+                 mode="side" 
+                 [opened]="true"
+                 [fixedInViewport]="true"
+                 #taskSidenav>
+        <mat-nav-list>
+            <mat-list-item class="nav-list" 
+                           *ngFor="let nav of navs">
+                <a [routerLink]="nav.url"
+                   routerLinkActive="active"
+                   [routerLinkActiveOptions]="{exact:true}">
+                   {{ nav.content }}
+                </a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>Main content</mat-sidenav-content>
+</mat-sidenav-container>

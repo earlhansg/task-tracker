@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/main.scss';
+
+.container {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $white;
+}
+
+mat-sidenav { width: 300px; }
+mat-nav-list {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.nav-list {
+    font-size: 15px !important;    
+    &:hover {
+        background-color: transparent !important;
+    }
+    a:hover {
+        color: #F06292;
+        font-weight: bold;
+    }
+}
+
+a.active { font-weight: bold; }

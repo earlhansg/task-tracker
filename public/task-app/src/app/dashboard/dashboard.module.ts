@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-// Component
+/* Component */
 import { DashboardComponent } from '@app/dashboard/containers/dashboard/dashboard.component';
-import { SidebarComponent } from '@app/dashboard/components/sidebar/sidebar.component';
 
-// Modules
+/* Modules */
 import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   imports: [
@@ -20,8 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   declarations: [
-    DashboardComponent,
-    SidebarComponent
+    DashboardComponent
   ],
 })
 export class DashboardModule { }
