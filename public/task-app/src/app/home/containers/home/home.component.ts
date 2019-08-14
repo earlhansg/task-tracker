@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 
 import { animations } from '@app/home/containers/home/home.animations';
 import { Subscription } from 'rxjs';
+
+/* Services */
+import { BreakPointsService } from '@app/shared/services/breakpoints/breakpoints.service';
 
 @Component({
   selector: 'app-home',
@@ -14,20 +16,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   leftHeader: string;
   private breakpointsSubcription$: Subscription;
 
-  constructor(public breakpointObserver: BreakpointObserver) {}
+  constructor( private breakPointsService: BreakPointsService ) {}
 
   ngOnInit() {
-    this.breakpointObserver
-      .observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
-      .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          console.log(
-            'Matches small viewport or handset in portrait mode'
-          );
-          this.leftHeader = 'hide'
-        }
-        else this.leftHeader = 'show';
-    });
+    this.breakpointsSubcription$ = this.breakPointsService
+        .checkBreakPoints()
+        .subscribe((match: boolean) => {
+          if (match) {
+            this.leftHeader = 'hide';
+          } else this.leftHeader = 'show';
+        });
   }
 
   ngOnDestroy() {
