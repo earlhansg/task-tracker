@@ -1,7 +1,7 @@
 <mat-sidenav-container class="container">
     <mat-sidenav class="task-list-sidenav"
-                 mode="side" 
-                 [opened]="true"
+                 [mode]="sidenavMode"
+                 [opened]="!isSmallScreen"
                  [fixedInViewport]="true"
                  #taskSidenav>
         <mat-nav-list>
