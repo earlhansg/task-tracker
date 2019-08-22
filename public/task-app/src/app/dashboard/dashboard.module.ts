@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 /* Component */
 import { DashboardComponent } from '@app/dashboard/containers/dashboard/dashboard.component';
+import { UserProfileComponent } from '@app/dashboard/components/user-profile/user-profile.component';
 
 /* Modules */
 import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
@@ -20,7 +21,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    UserProfileComponent
   ],
 })
 export class DashboardModule { }
