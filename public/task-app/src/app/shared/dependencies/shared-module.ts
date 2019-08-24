@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AngularMaterialModule } from '@app/shared/angular-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export const modules = [
   CommonModule,
@@ -11,5 +12,6 @@ export const modules = [
   ReactiveFormsModule,
   FormsModule,
   AngularMaterialModule,
-  LayoutModule
+  LayoutModule,
+  FontAwesomeModule
 ];

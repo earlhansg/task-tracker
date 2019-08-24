@@ -7,6 +7,8 @@ import { Subscription } from 'rxjs';
 /* Services */
 import { BreakPointsService } from '@app/shared/services/breakpoints/breakpoints.service';
 
+/* icons */
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,6 +16,7 @@ import { BreakPointsService } from '@app/shared/services/breakpoints/breakpoints
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
+  faCoffee = faCoffee;
   navs: Nav[] = navs;
   private breakpointsSubcription$: Subscription;
   isSmallScreen: boolean;
