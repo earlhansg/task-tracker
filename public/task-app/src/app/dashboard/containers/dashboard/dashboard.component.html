@@ -11,12 +11,13 @@
                 <a [routerLink]="nav.url"
                    routerLinkActive="active"
                    [routerLinkActiveOptions]="{exact:true}">
+                   <fa-icon class="nav-icon" [icon]="nav.icon" size="xs"></fa-icon>
                    {{ nav.content }}
                 </a>
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <fa-icon [icon]="faCoffee"></fa-icon>
+        <!-- <fa-icon [icon]="faCoffee"></fa-icon> -->
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,9 +1,14 @@
+/* icons */
+import { faPen, faListAlt, faChartBar,
+         faBell, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
 /* Navs */
-export type Nav = { url: string, content: string }
+export interface Nav { url: string; icon: IconDefinition; content: string; }
 
 export const navs: Nav[] = [
-    { url:'work', content: 'Work' },
-    { url:'plan', content: 'Plan' },
-    { url:'stats', content: 'Stats' },
-    { url:'notifications', content: 'Notifications' }
-]
+    { url: 'work', icon: faPen, content: 'Work' },
+    { url: 'plan', icon: faListAlt, content: 'Plan' },
+    { url: 'stats', icon: faChartBar, content: 'Stats' },
+    { url: 'notifications', icon: faBell,  content: 'Notifications' }
+];
+

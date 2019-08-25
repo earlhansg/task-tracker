@@ -16,14 +16,15 @@ mat-nav-list {
 }
 
 .nav-list {
-    font-size: 15px !important;    
+    font-size: 14px !important;    
     &:hover {
         background-color: transparent !important;
     }
     a:hover {
         color: #F06292;
-        font-weight: bold;
     }
 }
 
-a.active { font-weight: bold; }
+.nav-icon {
+    margin-right: 5px;
+}
