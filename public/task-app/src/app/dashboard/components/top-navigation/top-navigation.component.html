@@ -1,0 +1,33 @@
+<mat-toolbar color="accent">
+    <div class="navigation" 
+         fxLayout="row" 
+         fxLayout.xs="column">
+        <div class="navigation__left-btn" 
+             fxFlex="30" 
+             fxLayout.xs="column">
+            <button mat-mini-fab>
+                <fa-icon [icon]="faEnvelope" size="sm"></fa-icon>
+            </button>
+            <button mat-mini-fab>
+                <fa-icon [icon]="faBell" size="sm"></fa-icon>
+            </button>
+        </div>
+        <!-- end of class navigation__left-btn -->
+        <div class="navigation__search" 
+             fxFlex="40" 
+             fxLayout.xs="column">
+            <h5>Search to be followed</h5>
+        </div>
+        <!-- end of class navigation__search -->
+        <div fxFlex="30" 
+             fxLayout="row" 
+             fxLayoutAlign="end center" 
+             fxLayoutAlign.xs="center center">
+            <button mat-icon-button>
+                <fa-icon [icon]="faBars" size="lg"></fa-icon>
+            </button>
+        </div>
+        <!-- end of the last div element -->
+    </div>
+    <!-- end of class navigation -->
+</mat-toolbar>
