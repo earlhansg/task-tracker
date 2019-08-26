@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Component
 import { DashboardComponent } from '@app/dashboard/containers/dashboard/dashboard.component';
-import { WorkContentComponent } from '@app/dashboard/components/work-content/work-content.component';
+import { WorkContentComponent } from '@app/dashboard/containers/work-content/work-content.component';
 
 const routes: Routes = [
   {

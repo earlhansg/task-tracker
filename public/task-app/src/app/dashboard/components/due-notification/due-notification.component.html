@@ -1,0 +1,39 @@
+<mat-toolbar color="accent">
+    <div class="notification" fxLayout="row">
+        <div class="notification__header" 
+             fxFlex="20" 
+             fxLayout="column" 
+             fxLayoutAlign="center center">
+            <span>
+                <h3>Project Title</h3>
+                <p>Short description</p>
+            </span>
+        </div>
+        <!-- end of class notification__header -->
+        <div class="notification__date" 
+             fxFlex="20" 
+             fxLayoutAlign="center center">
+            <span>
+                <h3>Due Date</h3>
+                <p>Mon, Aug 28, 2017</p>
+            </span>
+        </div>
+        <!-- end of class notification__date -->
+        <div class="notification__users" 
+             fxFlex="60" 
+             fxLayout="row" 
+             fxLayoutAlign="end center">
+            <button mat-mini-fab>
+                <fa-icon [icon]="faUser" size="sm"></fa-icon>
+            </button>
+            <button mat-mini-fab>
+                <fa-icon [icon]="faUser" size="sm"></fa-icon>
+            </button>
+            <button mat-mini-fab>
+                <fa-icon [icon]="faPlus" size="sm"></fa-icon>
+            </button>
+        </div>
+        <!-- end of class notification__users -->
+    </div>
+    <!-- end of class notification -->
+</mat-toolbar>
