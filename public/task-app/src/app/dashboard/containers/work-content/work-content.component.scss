@@ -1,0 +1,22 @@
+.btn {
+    margin: 20px 25px 15px 0;
+
+    button:first-child {
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        margin-right: 10px;
+        color: white;
+        background-color: #F06292;
+        border: none;
+        border-radius: 25px;
+    }
+
+    button:last-child {
+        border: none;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+    }
+
+
+}
+
