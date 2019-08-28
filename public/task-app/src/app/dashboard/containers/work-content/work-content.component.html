@@ -1,5 +1,7 @@
 <app-due-notification></app-due-notification>
-<div class="btn" fxLayout="row" fxLayoutAlign="end center">
+<div class="btn" 
+     fxLayout="row" 
+     fxLayoutAlign="end center">
     <button mat-stroked-button>CREATE NEW TICKET</button>
     <button mat-stroked-button>
         <fa-icon [icon]="faPlus" size="sm"></fa-icon>
@@ -7,3 +9,11 @@
     </button>
 </div>
 <!-- end of class btn -->
+
+<div class="columns"
+     fxLayout.gt-sm	="row">
+    <app-column [columnName]="'Backlog'"></app-column>
+    <app-column [columnName]="'In Progress'"></app-column>
+    <app-column [columnName]="'Review'"></app-column>
+</div>
+<!-- end of class .columns -->

@@ -4,6 +4,7 @@ $start-breakpoint: 600px;
 
 .navigation {
     width: 100%;
+    position: relative;
 
     &__left-btn, &__search {
         @include media($start-breakpoint) {

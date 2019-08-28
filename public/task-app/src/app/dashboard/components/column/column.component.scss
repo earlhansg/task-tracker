@@ -1,0 +1,27 @@
+@import '../../../../assets/styles/main.scss';
+
+$start-breakpoint: 600px;
+
+:host {
+    width: 30%;
+    margin: 15px 10px 10px 10px;
+
+    @include media($start-breakpoint) {
+        & {
+           width: 100% !important;
+           margin: 15px 0 10px 0;
+        }
+    }
+}
+
+.column {
+    background-color: aqua;
+    label {
+        font-size: 15px;
+        font-weight: 600;
+    }
+}
+
+.arr-down {
+    margin-left: 6px;
+}

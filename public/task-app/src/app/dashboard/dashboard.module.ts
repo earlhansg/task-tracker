@@ -8,6 +8,7 @@ import { UserProfileComponent } from '@app/dashboard/components/user-profile/use
 import { TopNavigationComponent } from '@app/dashboard/components/top-navigation/top-navigation.component';
 import { WorkContentComponent } from '@app/dashboard/containers/work-content/work-content.component';
 import { DueNotificationComponent } from '@app/dashboard/components/due-notification/due-notification.component';
+import { ColumnComponent } from '@app/dashboard/components/column/column.component';
 
 /* Modules */
 import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
@@ -28,7 +29,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     UserProfileComponent,
     TopNavigationComponent,
     WorkContentComponent,
-    DueNotificationComponent
+    DueNotificationComponent,
+    ColumnComponent
   ],
 })
 export class DashboardModule { }
