@@ -9,6 +9,7 @@ import { TopNavigationComponent } from '@app/dashboard/components/top-navigation
 import { WorkContentComponent } from '@app/dashboard/containers/work-content/work-content.component';
 import { DueNotificationComponent } from '@app/dashboard/components/due-notification/due-notification.component';
 import { ColumnComponent } from '@app/dashboard/components/column/column.component';
+import { TaskComponent } from '@app/dashboard/components/task/task.component';
 
 /* Modules */
 import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
@@ -30,7 +31,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     TopNavigationComponent,
     WorkContentComponent,
     DueNotificationComponent,
-    ColumnComponent
+    ColumnComponent,
+    TaskComponent
   ],
 })
 export class DashboardModule { }

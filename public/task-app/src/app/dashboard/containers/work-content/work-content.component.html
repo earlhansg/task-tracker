@@ -11,7 +11,9 @@
 <!-- end of class btn -->
 
 <div class="columns"
-     fxLayout.gt-sm	="row">
+     fxLayout.gt-xs	="row"
+     fxLayout.lt-sm="column"
+     fxLayoutAlign="center center">
     <app-column [columnName]="'Backlog'"></app-column>
     <app-column [columnName]="'In Progress'"></app-column>
     <app-column [columnName]="'Review'"></app-column>

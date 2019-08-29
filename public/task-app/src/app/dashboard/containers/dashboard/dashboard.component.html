@@ -17,8 +17,10 @@
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content color="accent">
         <app-top-navigation></app-top-navigation>
-        <router-outlet></router-outlet>
+        <div class="content-bg">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

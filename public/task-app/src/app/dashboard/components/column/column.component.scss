@@ -1,21 +1,19 @@
 @import '../../../../assets/styles/main.scss';
 
-$start-breakpoint: 600px;
+$start-breakpoint: 599px;
 
 :host {
-    width: 30%;
-    margin: 15px 10px 10px 10px;
+    width: 27%;
+    margin: 15px 25px 10px 25px;
 
     @include media($start-breakpoint) {
         & {
-           width: 100% !important;
-           margin: 15px 0 10px 0;
+           width: 50% !important;
         }
     }
 }
 
 .column {
-    background-color: aqua;
     label {
         font-size: 15px;
         font-weight: 600;

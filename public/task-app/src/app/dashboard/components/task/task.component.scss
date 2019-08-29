@@ -1,0 +1,38 @@
+@import '../../../../assets/styles/main.scss';
+
+:host {
+    width: 100%;
+}
+
+.task {
+    background-color: white;
+    margin: 10px 0 15px 0;
+    padding: 20px 15px 20px 15px;
+    box-shadow: 0 10px 6px -6px #777;
+
+    h5 {
+        color: #8c8c8c;
+        margin: 2px 0 2px 0;
+
+        &:first-of-type::after {
+            content: '';
+            display: inline-block;
+            margin-left: 5px;
+            width: 10px;
+            height: 10px;
+            -moz-border-radius: 7.5px;
+            -webkit-border-radius: 7.5px;
+            border-radius: 7.5px;
+            background-color: #1affa3;
+        }
+    }
+
+    &__user {
+        margin-top: 15px;
+
+        &--date {
+            margin-left: 5px;
+            color: #8c8c8c;
+        }
+    }
+}
