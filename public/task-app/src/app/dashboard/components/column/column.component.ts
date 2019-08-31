@@ -15,8 +15,8 @@ export class ColumnComponent implements OnInit {
 
   ngOnInit() {}
 
-  addTask() {
-    console.log('emitted data');
+  addTask(task) {
+    console.log('emitted data', this.columnName, task);
   }
 
 }
