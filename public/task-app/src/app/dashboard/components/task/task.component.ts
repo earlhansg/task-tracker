@@ -9,6 +9,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 })
 export class TaskComponent implements OnInit {
   faUser = faUser;
+  @Input() task;
 
   constructor() { }
 

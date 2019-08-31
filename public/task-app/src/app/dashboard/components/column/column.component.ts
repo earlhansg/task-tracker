@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, } from '@angular/core';
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,5 +14,9 @@ export class ColumnComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+
+  addTask() {
+    console.log('emitted data');
+  }
 
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+
+import { ColumnComponent } from '@app/dashboard/components/column/column.component';
 
 /* icons */
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +11,15 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 })
 export class WorkContentComponent implements OnInit {
   faPlus = faPlus;
+  @ViewChildren(ColumnComponent) column: QueryList<ColumnComponent>;
+
+  task = {
+    name: 'Database',
+    type: 'Design',
+    description: 'normalize db in the project',
+    created: '08/09/17',
+    assign: 'Jason Bayocot'
+  };
 
   constructor() { }
 
