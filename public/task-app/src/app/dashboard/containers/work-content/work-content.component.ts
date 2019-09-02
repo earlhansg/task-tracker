@@ -1,4 +1,4 @@
-import { Component, ViewChildren, QueryList, AfterContentInit } from '@angular/core';
+import { Component, ViewChildren, QueryList, OnInit } from '@angular/core';
 
 import { ColumnComponent } from '@app/dashboard/components/column/column.component';
 
@@ -6,7 +6,7 @@ import { ColumnComponent } from '@app/dashboard/components/column/column.compone
 import { Task } from '@app/dashboard/models/interfaces/task.interface';
 
 /* mock data */
-import { task } from '@app/dashboard/containers/work-content/work.data';
+import { task, tasks } from '@app/dashboard/containers/work-content/work.data';
 
 /* icons */
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -15,20 +15,22 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './work-content.component.html',
   styleUrls: ['./work-content.component.scss']
 })
-export class WorkContentComponent implements AfterContentInit {
+export class WorkContentComponent implements OnInit {
   faPlus = faPlus;
+  column: ColumnComponent;
   @ViewChildren(ColumnComponent) columns: QueryList<ColumnComponent>;
 
   task: Task = task;
+  mockData: Task[] = tasks;
 
   constructor() { }
 
-  ngAfterContentInit() {}
+  ngOnInit() {}
 
   addTask() {
     this.columns
         .forEach((item) => item.columnName === this.task.columnName
-        ? item.addTask(this.task) : null);
+        ? item.createTask(this.task) : null);
   }
 
 }

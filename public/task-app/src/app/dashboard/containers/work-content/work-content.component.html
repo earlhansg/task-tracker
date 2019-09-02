@@ -13,9 +13,9 @@
 <div class="columns"
      fxLayout.gt-xs	="row"
      fxLayout.lt-sm="column"
-     fxLayoutAlign="center none">
-    <app-column [columnName]="'Backlog'"></app-column>
-    <app-column [columnName]="'In Progress'"></app-column>
-    <app-column [columnName]="'Review'"></app-column>
+     fxLayoutAlign.lt-sm="center center">
+    <app-column [columnName]="'Backlog'" [tasks]="mockData"></app-column>
+    <app-column [columnName]="'In Progress'" [tasks]="mockData"></app-column>
+    <app-column [columnName]="'Review'" [tasks]="mockData"></app-column>
 </div>
 <!-- end of class .columns -->

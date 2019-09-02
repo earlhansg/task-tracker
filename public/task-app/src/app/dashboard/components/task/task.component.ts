@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+
+/* interface */
+import { Task } from '@app/dashboard/models/interfaces/task.interface';
+
 /* icons */
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,7 +13,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 })
 export class TaskComponent implements OnInit {
   faUser = faUser;
-  @Input() task;
+  @Input() task: Task;
 
   constructor() { }
 
