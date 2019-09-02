@@ -1,4 +1,9 @@
-import { Component, OnInit, Input, } from '@angular/core';
+import { Component, OnInit, Input, ViewChild,
+         ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+
+/* component */
+import { TaskComponent } from '@app/dashboard/components/task/task.component';
+
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,14 +14,19 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class ColumnComponent implements OnInit {
   @Input() columnName: string;
+  @ViewChild('container', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
+
   faArrowDown = faArrowDown;
 
-  constructor() { }
+  constructor(private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {}
 
   addTask(task) {
-    console.log('emitted data', this.columnName, task);
+    // console.log('emitted data', this.columnName, task);
+    const taskFactory = this.resolver.resolveComponentFactory(TaskComponent);
+    const component = this.container.createComponent(taskFactory);
+    component.instance.task = task;
   }
 
 }

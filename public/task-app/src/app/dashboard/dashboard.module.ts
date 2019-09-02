@@ -34,5 +34,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ColumnComponent,
     TaskComponent
   ],
+  entryComponents: [
+    TaskComponent
+  ]
 })
 export class DashboardModule { }

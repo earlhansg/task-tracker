@@ -33,10 +33,4 @@ mat-nav-list {
 
 .content-bg {
     background-color: whitesmoke;
-    height: 100vh;
-    @include media($start-breakpoint) {
-        & {
-            height: auto;
-        }
-    }
 }
