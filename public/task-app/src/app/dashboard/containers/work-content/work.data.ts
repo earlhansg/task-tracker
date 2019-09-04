@@ -8,7 +8,7 @@ export const task: Task = {
     description: 'normalize db in the project',
     created: '08/09/17',
     assign: 'Jason Bayocot',
-    columnName: Column.Backlog
+    columnName: Column.inProgress
 };
 
 
