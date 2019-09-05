@@ -10,6 +10,7 @@ import { WorkContentComponent } from '@app/dashboard/containers/work-content/wor
 import { DueNotificationComponent } from '@app/dashboard/components/due-notification/due-notification.component';
 import { ColumnComponent } from '@app/dashboard/components/column/column.component';
 import { TaskComponent } from '@app/dashboard/components/task/task.component';
+import { CreateTicketFormComponent } from '@app/dashboard/components/create-ticket-form/create-ticket-form.component';
 
 /* Modules */
 import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
@@ -32,7 +33,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     WorkContentComponent,
     DueNotificationComponent,
     ColumnComponent,
-    TaskComponent
+    TaskComponent,
+    CreateTicketFormComponent
   ],
   entryComponents: [
     TaskComponent
