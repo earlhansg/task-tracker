@@ -15,7 +15,7 @@ export const task: Task = {
 export const tasks: Task[] = [
     {
         name: 'Dashboard UI',
-        type: 'Design',
+        type: 'UI',
         description: 'create UI for dashboard',
         created: '08/09/17',
         assign: 'Earl Hans Genoso',
@@ -55,7 +55,7 @@ export const tasks: Task[] = [
     },
     {
         name: 'Lazy Load',
-        type: 'feature',
+        type: 'Feature',
         description: 'setup lazy load to the application',
         created: '08/09/17',
         assign: 'Earl Hans Genoso',
