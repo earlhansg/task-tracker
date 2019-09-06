@@ -1,0 +1,19 @@
+.dialog {
+    text-align: center;
+    &__header {
+        margin-top: 10px;
+
+        span {
+            font-size: 15px;
+            margin-left: 5px;
+            font-weight: 600;
+            color: rgb(53, 53, 53);
+        }
+        fa-icon {
+            color: rgb(247, 155, 170);
+        }
+    }
+    &__content {
+        margin-top: 15px;
+    }
+}

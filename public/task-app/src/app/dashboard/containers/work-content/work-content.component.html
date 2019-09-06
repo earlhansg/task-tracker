@@ -2,7 +2,7 @@
 <div class="btn" 
      fxLayout="row" 
      fxLayoutAlign="end center">
-    <button mat-stroked-button (click)="addTask()">CREATE NEW TICKET</button>
+    <button mat-stroked-button (click)="openDialog()">CREATE NEW TICKET</button>
     <button mat-stroked-button>
         <fa-icon [icon]="faPlus" size="sm"></fa-icon>
         Add column
@@ -19,3 +19,7 @@
     <app-column [columnName]="'Review'" [tasks]="mockData"></app-column>
 </div>
 <!-- end of class .columns -->
+
+<ng-template #createTicketForm>
+    <app-create-ticket-form></app-create-ticket-form>
+</ng-template>

@@ -2,10 +2,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { FormlyFieldConfig } from '@ngx-formly/core';
-
-import { Credentials } from '@app/shared/interfaces/credentials.interface';
-
-
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,15 +10,15 @@ import { Credentials } from '@app/shared/interfaces/credentials.interface';
 export class FormComponent {
 
   form: FormGroup = new FormGroup({});
-  model: Credentials = { username: '', password: '' };
+  model = {};
 
   @Input() buttonLabel: string;
   @Input() fields: FormlyFieldConfig[];
-  @Output() submitted: EventEmitter<Credentials> = new EventEmitter<Credentials>();
+  @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
-  submitForm(credentials: Credentials): void {
+  submitForm(credentials: any): void {
     this.submitted.next(credentials);
   }
 

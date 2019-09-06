@@ -11,6 +11,9 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
   exports: [...modules, ...components],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
+  ],
+  entryComponents: [
+    ...components
   ]
 })
 export class SharedModule { }

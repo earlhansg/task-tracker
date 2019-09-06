@@ -1,0 +1,16 @@
+<div class="dialog">
+    <div class="dialog__header"
+         fxLayout="row" 
+         fxLayoutAlign="center center">
+        <fa-icon [icon]="data.icon" size="md"></fa-icon>
+        <span>{{data.header}}</span>
+    </div>
+    <div class="dialog__content" mat-dialog-content>
+      <ng-container *ngIf="data.template"
+                    [ngTemplateOutlet]="data.template"></ng-container>
+    </div>
+    <div mat-dialog-actions>
+      <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
+      <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Save</button> -->
+    </div>
+</div>
