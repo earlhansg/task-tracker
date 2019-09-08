@@ -9,7 +9,7 @@ import { TopNavigationComponent } from '@app/dashboard/components/top-navigation
 import { WorkContentComponent } from '@app/dashboard/containers/work-content/work-content.component';
 import { DueNotificationComponent } from '@app/dashboard/components/due-notification/due-notification.component';
 import { ColumnComponent } from '@app/dashboard/components/column/column.component';
-import { TaskComponent } from '@app/dashboard/components/task/task.component';
+import { TicketComponent } from '@app/dashboard/components/ticket/ticket.component';
 import { CreateTicketFormComponent } from '@app/dashboard/components/create-ticket-form/create-ticket-form.component';
 
 /* Modules */
@@ -33,11 +33,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     WorkContentComponent,
     DueNotificationComponent,
     ColumnComponent,
-    TaskComponent,
+    TicketComponent,
     CreateTicketFormComponent
   ],
   entryComponents: [
-    TaskComponent
+    TicketComponent
   ]
 })
 export class DashboardModule { }

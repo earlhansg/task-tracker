@@ -2,9 +2,9 @@ import { Component, OnInit, Input, ViewChild, AfterContentInit,
          ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 /* component */
-import { TaskComponent } from '@app/dashboard/components/task/task.component';
+import { TicketComponent } from '@app/dashboard/components/ticket/ticket.component';
 /* interface */
-import { Task } from '@app/dashboard/models/interfaces/task.interface';
+import { Ticket } from '@app/dashboard/models/interfaces/ticket.interface';
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +16,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 export class ColumnComponent implements OnInit {
 
   @Input() columnName: string;
-  @Input() tasks: Task[];
+  @Input() tickets: Ticket[];
 
   @ViewChild('container', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
@@ -28,15 +28,15 @@ export class ColumnComponent implements OnInit {
     this.fetchTask();
   }
 
-  createTask(task: Task) {
-    const taskFactory = this.resolver.resolveComponentFactory(TaskComponent);
+  createTask(ticket: Ticket) {
+    const taskFactory = this.resolver.resolveComponentFactory(TicketComponent);
     const component = this.container.createComponent(taskFactory);
-    component.instance.task = task;
+    component.instance.ticket = ticket;
   }
 
   fetchTask() {
-    this.tasks.forEach((task: Task) =>
-        task.columnName === this.columnName ? this.createTask(task) : null);
+    this.tickets.forEach((ticket: Ticket) =>
+        ticket.columnName === this.columnName ? this.createTask(ticket) : null);
   }
 
 }

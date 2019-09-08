@@ -18,8 +18,9 @@ export class FormComponent {
 
   constructor() {}
 
-  submitForm(credentials: any): void {
-    this.submitted.next(credentials);
+  submitForm(formValues: any): void {
+    this.submitted.next(formValues);
   }
+
 
 }

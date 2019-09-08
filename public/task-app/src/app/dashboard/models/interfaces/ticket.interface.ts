@@ -1,4 +1,4 @@
-export interface Task {
+export interface Ticket {
     name: string;
     type: string;
     description: string;

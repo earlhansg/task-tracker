@@ -1,13 +1,13 @@
 <div class="task" 
      fxLayout="column"
      [@slideDown]>
-    <h4>{{task.name}}</h4>
-    <h5>{{task.type}}</h5>
-    <h5>{{task.description}}</h5>
+    <h4>{{ticket.name}}</h4>
+    <h5>{{ticket.type}}</h5>
+    <h5>{{ticket.description}}</h5>
     <span class="task__user">
         <button mat-mini-fab>
             <fa-icon [icon]="faUser" size="sm"></fa-icon>
         </button>
-        <small class="task__user--date">{{task.created}}</small>
+        <small class="task__user--date">{{ticket.created}}</small>
     </span>
 </div>

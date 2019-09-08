@@ -1,8 +1,8 @@
-import { Task } from '@app/dashboard/models/interfaces/task.interface';
+import { Ticket } from '@app/dashboard/models/interfaces/ticket.interface';
 import { Column } from '@app/dashboard/models/enums/column.enum';
 
 
-export const task: Task = {
+export const ticket: Ticket = {
     name: 'Database',
     type: 'Backend',
     description: 'normalize db in the project',
@@ -12,7 +12,7 @@ export const task: Task = {
 };
 
 
-export const tasks: Task[] = [
+export const tickets: Ticket[] = [
     {
         name: 'Dashboard UI',
         type: 'UI',

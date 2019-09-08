@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 /* data */
 import { ticket, TicketForm } from '@app/dashboard/components/create-ticket-form/create-ticket-form.data';
+/* service*/
+import { FormService } from '@app/shared/services/form/form.service';
+
+
+
 @Component({
   selector: 'app-create-ticket-form',
   templateUrl: './create-ticket-form.component.html',
@@ -10,12 +15,12 @@ import { ticket, TicketForm } from '@app/dashboard/components/create-ticket-form
 export class CreateTicketFormComponent implements OnInit {
   ticket: TicketForm = ticket;
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
   ngOnInit() {}
 
-  onSubmittedForm(data) {
-    console.log(data);
+  onSubmittedForm(values) {
+    console.log(values);
   }
 
 }
