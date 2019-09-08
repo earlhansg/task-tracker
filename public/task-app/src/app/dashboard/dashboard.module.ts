@@ -17,7 +17,6 @@ import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 @NgModule({
   imports: [
     CommonModule,

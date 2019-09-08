@@ -20,7 +20,6 @@ export class CreateTicketFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmittedForm(values) {
-    console.log(values);
+    this.formService.sendValues(values);
   }
-
 }

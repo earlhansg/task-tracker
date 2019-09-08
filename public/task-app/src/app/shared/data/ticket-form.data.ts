@@ -4,7 +4,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 /* TICKET FORM FIELDS */
 export const ticketFormFields: FormlyFieldConfig[] = [
   {
-    key: 'ticketName',
+    key: 'name',
     type: 'input',
     templateOptions: {
       placeholder: 'Ticket Name',
@@ -12,7 +12,7 @@ export const ticketFormFields: FormlyFieldConfig[] = [
     }
   },
   {
-    key: 'ticketType',
+    key: 'type',
     type: 'select',
     templateOptions: {
         label: 'Select type',
@@ -26,7 +26,7 @@ export const ticketFormFields: FormlyFieldConfig[] = [
     }
   },
   {
-    key: 'ticketDescription',
+    key: 'description',
     type: 'textarea',
     templateOptions: {
       placeholder: 'Add description ...',

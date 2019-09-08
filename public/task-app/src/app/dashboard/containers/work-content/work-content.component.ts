@@ -1,16 +1,18 @@
-import { Component, ViewChildren, QueryList, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ViewChildren, QueryList, OnInit, OnDestroy, TemplateRef, ViewChild } from '@angular/core';
 /* components  */
 import { ColumnComponent } from '@app/dashboard/components/column/column.component';
 import { CreateTicketFormComponent } from '@app/dashboard/components/create-ticket-form/create-ticket-form.component';
 import { DialogComponent } from '@app/shared/components/dialog/dialog.component';
 /* interface */
 import { Ticket } from '@app/dashboard/models/interfaces/ticket.interface';
+/* enum */
+import { Column } from '@app/dashboard/models/enums/column.enum';
 /* mock data */
-import { ticket, tickets } from '@app/dashboard/containers/work-content/work.data';
+import { tickets } from '@app/dashboard/containers/work-content/work.data';
 /* icons */
 import { faPlus, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 /* dialog */
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 /* service */
 import { FormService } from '@app/shared/services/form/form.service';
 /* rxjs */
@@ -20,12 +22,11 @@ import { Subscription } from 'rxjs';
   templateUrl: './work-content.component.html',
   styleUrls: ['./work-content.component.scss']
 })
-export class WorkContentComponent implements OnInit {
+export class WorkContentComponent implements OnInit, OnDestroy {
   faPlus = faPlus;
   column: ColumnComponent;
   @ViewChildren(ColumnComponent) columns: QueryList<ColumnComponent>;
 
-  ticket: Ticket = ticket;
   mockData: Ticket[] = tickets;
   subscription: Subscription;
 
@@ -37,7 +38,23 @@ export class WorkContentComponent implements OnInit {
   constructor(public dialog: MatDialog,
               private formService: FormService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.subscription = this.formService.getValues().subscribe(values => {
+      const created      = '08/09/17';
+      const assign       = 'Jason B';
+      const columnName   = Column.Backlog;
+      const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
+      if (ticketStatus) {
+        const item: Ticket = {...values.formValues, created, assign, columnName };
+        this.addTask(item);
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -47,14 +64,15 @@ export class WorkContentComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.formService.clearValues();
     });
   }
 
 
-  addTask() {
+  addTask(item: Ticket) {
     this.columns
-        .forEach((item) => item.columnName === this.ticket.columnName
-        ? item.createTask(this.ticket) : null);
+        .forEach((val) => val.columnName === item.columnName
+        ? val.createTask(item) : null);
   }
 
 }
