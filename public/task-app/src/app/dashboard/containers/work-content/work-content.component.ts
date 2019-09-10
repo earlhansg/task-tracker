@@ -4,9 +4,9 @@ import { ColumnComponent } from '@app/dashboard/components/column/column.compone
 import { CreateTicketFormComponent } from '@app/dashboard/components/create-ticket-form/create-ticket-form.component';
 import { DialogComponent } from '@app/shared/components/dialog/dialog.component';
 /* interface */
-import { Ticket } from '@app/dashboard/models/interfaces/ticket.interface';
+import { Ticket } from '@app/dashboard/models';
 /* enum */
-import { Column } from '@app/dashboard/models/enums/column.enum';
+import { Column } from '@app/dashboard/enums/column.enum';
 /* mock data */
 import { tickets } from '@app/dashboard/containers/work-content/work.data';
 /* icons */
@@ -14,7 +14,7 @@ import { faPlus, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 /* dialog */
 import { MatDialog } from '@angular/material/dialog';
 /* service */
-import { FormService } from '@app/shared/services/form/form.service';
+import { FormService } from '@app/shared/services';
 /* rxjs */
 import { Subscription } from 'rxjs';
 @Component({

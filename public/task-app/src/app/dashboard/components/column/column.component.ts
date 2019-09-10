@@ -4,7 +4,7 @@ import { Component, OnInit, Input, ViewChild, AfterContentInit,
 /* component */
 import { TicketComponent } from '@app/dashboard/components/ticket/ticket.component';
 /* interface */
-import { Ticket } from '@app/dashboard/models/interfaces/ticket.interface';
+import { Ticket } from '@app/dashboard/models';
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 

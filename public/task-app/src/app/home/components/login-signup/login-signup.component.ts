@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormComponent } from '@app/shared/components/form/form.component';
 
-import { Credentials } from '@app/shared/interfaces/credentials.interface';
+import { Credentials } from '@app/shared/models/credentials.model';
 
 import { tabs, Tab } from '@app/home/components/login-signup/login-signup.data';
 

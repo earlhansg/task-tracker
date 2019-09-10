@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 /* interface */
-import { Ticket } from '@app/dashboard/models/interfaces/ticket.interface';
+import { Ticket } from '@app/dashboard/models';
 
 /* icons */
 import { faUser } from '@fortawesome/free-solid-svg-icons';

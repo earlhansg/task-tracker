@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserProfile } from '@app/dashboard/models/interfaces/user.interface';
+import { UserProfile } from '@app/dashboard/models';
 import { user } from '@app/dashboard/components/user-profile/user-profile.data';
 
 

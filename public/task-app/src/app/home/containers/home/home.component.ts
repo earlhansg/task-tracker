@@ -4,7 +4,7 @@ import { animations } from '@app/home/containers/home/home.animations';
 import { Subscription } from 'rxjs';
 
 /* Services */
-import { BreakPointsService } from '@app/shared/services/breakpoints/breakpoints.service';
+import { BreakPointsService } from '@app/shared/services';
 
 @Component({
   selector: 'app-home',

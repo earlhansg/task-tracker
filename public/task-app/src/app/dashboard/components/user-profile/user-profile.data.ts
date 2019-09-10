@@ -1,4 +1,4 @@
-import { UserProfile } from '@app/dashboard/models/interfaces/user.interface';
+import { UserProfile } from '@app/dashboard/models';
 
 
 export const user: UserProfile = {

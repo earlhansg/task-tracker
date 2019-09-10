@@ -5,7 +5,7 @@ import { navs, Nav } from '@app/dashboard/containers/dashboard/dashboard.data';
 import { Subscription } from 'rxjs';
 
 /* Services */
-import { BreakPointsService } from '@app/shared/services/breakpoints/breakpoints.service';
+import { BreakPointsService } from '@app/shared/services';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

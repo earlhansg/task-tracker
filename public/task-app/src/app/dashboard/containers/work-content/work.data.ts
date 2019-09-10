@@ -1,5 +1,5 @@
-import { Ticket } from '@app/dashboard/models/interfaces/ticket.interface';
-import { Column } from '@app/dashboard/models/enums/column.enum';
+import { Ticket } from '@app/dashboard/models';
+import { Column } from '@app/dashboard/enums/column.enum';
 
 
 export const ticket: Ticket = {
