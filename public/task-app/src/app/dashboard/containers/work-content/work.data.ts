@@ -7,7 +7,7 @@ export const ticket: Ticket = {
     type: 'Backend',
     description: 'normalize db in the project',
     created: '08/09/17',
-    assign: 'Jason Bayocot',
+    assign: 4,
     columnName: Column.inProgress
 };
 
@@ -18,7 +18,7 @@ export const tickets: Ticket[] = [
         type: 'UI',
         description: 'create UI for dashboard',
         created: '08/09/17',
-        assign: 'Earl Hans Genoso',
+        assign: 3,
         columnName: Column.Backlog
     },
     {
@@ -26,7 +26,7 @@ export const tickets: Ticket[] = [
         type: 'Functionality',
         description: 'create function for login',
         created: '08/09/17',
-        assign: 'Billy Lincaro',
+        assign: 1,
         columnName: Column.inProgress
     },
     {
@@ -34,7 +34,7 @@ export const tickets: Ticket[] = [
         type: 'UI',
         description: 'create UI for signup',
         created: '08/09/17',
-        assign: 'Kristy Mae Almuete',
+        assign: 1,
         columnName: Column.Review
     },
     {
@@ -42,7 +42,7 @@ export const tickets: Ticket[] = [
         type: 'Backend',
         description: 'setup routes in the backend',
         created: '08/09/17',
-        assign: 'Jason Bayocot',
+        assign: 3,
         columnName: Column.Backlog
     },
     {
@@ -50,7 +50,7 @@ export const tickets: Ticket[] = [
         type: 'Functionality',
         description: 'create function for signup',
         created: '08/09/17',
-        assign: 'Jason Bayocot',
+        assign: 2,
         columnName: Column.Backlog
     },
     {
@@ -58,7 +58,7 @@ export const tickets: Ticket[] = [
         type: 'Feature',
         description: 'setup lazy load to the application',
         created: '08/09/17',
-        assign: 'Earl Hans Genoso',
+        assign: 1,
         columnName: Column.Review
     }
 ];

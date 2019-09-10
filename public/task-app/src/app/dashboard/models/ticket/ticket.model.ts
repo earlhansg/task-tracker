@@ -3,6 +3,6 @@ export interface Ticket {
     type: string;
     description: string;
     created: string;
-    assign: string;
+    assign: number;
     columnName: 'Backlog' | 'In Progress' | 'Review';
 }

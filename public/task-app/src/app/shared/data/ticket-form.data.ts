@@ -1,7 +1,6 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
-import { users } from '@app/shared/data/users.data';
-import { user } from '@app/dashboard/components/user-profile/user-profile.data';
+import { users } from '@app/shared/data/users-list.data';
 
 const result = users.map(item => {
   return { label: `${item.firstName} ${item.lastName}`, value: item.id };
