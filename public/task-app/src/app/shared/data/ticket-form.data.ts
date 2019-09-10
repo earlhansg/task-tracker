@@ -1,5 +1,11 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
+import { users } from '@app/shared/data/users.data';
+import { user } from '@app/dashboard/components/user-profile/user-profile.data';
+
+const result = users.map(item => {
+  return { label: `${item.firstName} ${item.lastName}`, value: item.id };
+});
 
 /* TICKET FORM FIELDS */
 export const ticketFormFields: FormlyFieldConfig[] = [
@@ -22,7 +28,7 @@ export const ticketFormFields: FormlyFieldConfig[] = [
             { label: 'Backend', value: 'Backend' },
             { label: 'Functionality', value: 'Functionality' },
             { label: 'Bug', value: 'Bug' },
-        ],
+        ]
     }
   },
   {
@@ -31,6 +37,16 @@ export const ticketFormFields: FormlyFieldConfig[] = [
     templateOptions: {
       placeholder: 'Add description ...',
       required: true,
+    }
+  },
+  {
+    key: 'assign',
+    type: 'select',
+    templateOptions: {
+      label: 'Select user ...',
+      options: [
+        ...result
+      ]
     }
   }
 ];
