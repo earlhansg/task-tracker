@@ -24,6 +24,7 @@ export class FormComponent {
 
   submitForm(formValues: Ticket | Credentials): void {
     this.submitted.next(formValues);
+    this.form.reset();
   }
 
 

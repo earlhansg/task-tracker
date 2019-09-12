@@ -3,6 +3,7 @@ import { Component, ViewChildren, QueryList, OnInit, OnDestroy, TemplateRef, Vie
 import { ColumnComponent } from '@app/dashboard/components/column/column.component';
 import { CreateTicketFormComponent } from '@app/dashboard/components/create-ticket-form/create-ticket-form.component';
 import { DialogComponent } from '@app/shared/components/dialog/dialog.component';
+import { SuccessMessageComponent } from '@app/shared/components/success-message/success-message.component';
 /* interface */
 import { Ticket } from '@app/dashboard/models';
 /* enum */
@@ -13,6 +14,8 @@ import { tickets } from '@app/dashboard/containers/work-content/work.data';
 import { faPlus, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 /* dialog */
 import { MatDialog } from '@angular/material/dialog';
+/* snackbar */
+import { MatSnackBar } from '@angular/material/snack-bar';
 /* service */
 import { FormService } from '@app/shared/services';
 /* rxjs */
@@ -36,16 +39,16 @@ export class WorkContentComponent implements OnInit, OnDestroy {
 
 
   constructor(public dialog: MatDialog,
+              private snackBar: MatSnackBar,
               private formService: FormService) { }
 
   ngOnInit() {
     this.subscription = this.formService.getValues().subscribe(values => {
       const created      = '08/09/17';
-      const assign       = 'Jason B';
       const columnName   = Column.Backlog;
       const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
       if (ticketStatus) {
-        const item: Ticket = {...values.formValues, created, assign, columnName };
+        const item: Ticket = {...values.formValues, created, columnName };
         this.addTask(item);
       }
     });
@@ -73,6 +76,10 @@ export class WorkContentComponent implements OnInit, OnDestroy {
     this.columns
         .forEach((val) => val.columnName === item.columnName
         ? val.createTask(item) : null);
+    this.snackBar.openFromComponent(SuccessMessageComponent, {
+      data: `${item.name} ticket added`,
+      duration: 2500
+    });
   }
 
 }
