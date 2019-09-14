@@ -1,9 +1,8 @@
 import { Component, ViewChildren, QueryList, OnInit, OnDestroy, TemplateRef, ViewChild } from '@angular/core';
+
 /* components  */
-import { ColumnComponent } from '@app/dashboard/components/column/column.component';
-import { CreateTicketFormComponent } from '@app/dashboard/components/create-ticket-form/create-ticket-form.component';
-import { DialogComponent } from '@app/shared/components/dialog/dialog.component';
-import { SuccessMessageComponent } from '@app/shared/components/success-message/success-message.component';
+import * as dashboardComponent from '@app/dashboard/components';
+import * as sharedComponent from '@app/shared/components';
 /* interface */
 import { Ticket } from '@app/dashboard/models';
 /* enum */
@@ -27,15 +26,18 @@ import { Subscription } from 'rxjs';
 })
 export class WorkContentComponent implements OnInit, OnDestroy {
   faPlus = faPlus;
-  column: ColumnComponent;
-  @ViewChildren(ColumnComponent) columns: QueryList<ColumnComponent>;
+  column: dashboardComponent.ColumnComponent;
+
+  @ViewChildren(dashboardComponent.ColumnComponent)
+  columns: QueryList<dashboardComponent.ColumnComponent>;
 
   mockData: Ticket[] = tickets;
   subscription: Subscription;
 
   header = 'Create Ticket';
   icon = faStickyNote;
-  @ViewChild('createTicketForm', {static: false}) createTicketFormTemplate: TemplateRef<CreateTicketFormComponent>;
+  @ViewChild('createTicketForm', {static: false})
+  createTicketFormTemplate: TemplateRef<dashboardComponent.CreateTicketFormComponent>;
 
 
   constructor(public dialog: MatDialog,
@@ -60,7 +62,7 @@ export class WorkContentComponent implements OnInit, OnDestroy {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(sharedComponent.DialogComponent, {
       width: '350px',
       data: { header: this.header, icon: this.icon, template: this.createTicketFormTemplate }
     });
@@ -76,7 +78,7 @@ export class WorkContentComponent implements OnInit, OnDestroy {
     this.columns
         .forEach((val) => val.columnName === item.columnName
         ? val.createTask(item) : null);
-    this.snackBar.openFromComponent(SuccessMessageComponent, {
+    this.snackBar.openFromComponent(sharedComponent.SuccessMessageComponent, {
       data: `${item.name} ticket added`,
       duration: 2500
     });

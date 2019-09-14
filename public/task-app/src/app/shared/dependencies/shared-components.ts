@@ -1,9 +1,3 @@
-import { FormComponent } from '@app/shared/components/form/form.component';
-import { DialogComponent } from '@app/shared/components/dialog/dialog.component';
-import { SuccessMessageComponent } from '@app/shared/components/success-message/success-message.component';
+import * as fromComponents from '@app/shared/components';
 
-export const components = [
-    FormComponent,
-    DialogComponent,
-    SuccessMessageComponent
-];
+export const components = [...fromComponents.components];

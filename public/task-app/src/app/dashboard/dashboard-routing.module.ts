@@ -1,17 +1,16 @@
 import { RouterModule, Routes } from '@angular/router';
 
-// Component
-import { DashboardComponent } from '@app/dashboard/containers/dashboard/dashboard.component';
-import { WorkContentComponent } from '@app/dashboard/containers/work-content/work-content.component';
+// Containers
+import * as fromContainers from '@app/dashboard/containers';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
+    component: fromContainers.DashboardComponent,
     children: [
       {
         path: 'work',
-        component: WorkContentComponent
+        component: fromContainers.WorkContentComponent
       },
       { path: '', redirectTo: 'work', pathMatch: 'full' }
     ]

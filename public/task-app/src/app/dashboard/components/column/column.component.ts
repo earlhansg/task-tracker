@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild, AfterContentInit,
          ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 /* component */
-import { TicketComponent } from '@app/dashboard/components/ticket/ticket.component';
+import * as fromComponents from '@app/dashboard/components';
 /* interface */
 import { Ticket } from '@app/dashboard/models';
 /* icons */
@@ -29,7 +29,7 @@ export class ColumnComponent implements OnInit {
   }
 
   createTask(ticket: Ticket) {
-    const taskFactory = this.resolver.resolveComponentFactory(TicketComponent);
+    const taskFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
     const component = this.container.createComponent(taskFactory);
     component.instance.ticket = ticket;
   }
