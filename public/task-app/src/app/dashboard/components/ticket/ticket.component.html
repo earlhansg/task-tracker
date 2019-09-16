@@ -28,7 +28,8 @@
         </mat-menu>
         <mat-menu #column="matMenu">
             <button mat-menu-item 
-                    *ngFor="let col of columns">{{col.name}}</button>
+                    *ngFor="let col of columns"
+                    (click)="moveTask(col.name)">{{col.name}}</button>
         </mat-menu>
     </div>
     <!-- end of class btn-move -->

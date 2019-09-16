@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ViewChild, AfterContentInit,
-         ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, Input, ViewChild,
+         ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 
 /* component */
 import * as fromComponents from '@app/dashboard/components';
@@ -21,6 +21,8 @@ export class ColumnComponent implements OnInit {
   @ViewChild('container', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
   faArrowDown = faArrowDown;
+  taskFactory;
+  component: ComponentRef<fromComponents.TicketComponent>;
 
   constructor(private resolver: ComponentFactoryResolver) {}
 
@@ -29,14 +31,20 @@ export class ColumnComponent implements OnInit {
   }
 
   createTask(ticket: Ticket) {
-    const taskFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
-    const component = this.container.createComponent(taskFactory);
-    component.instance.ticket = ticket;
+    this.taskFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
+    this.component = this.container.createComponent(this.taskFactory);
+    this.component.instance.ticket = ticket;
+    this.component.instance.move.subscribe(this.onMove);
   }
 
   fetchTask() {
     this.tickets.forEach((ticket: Ticket) =>
         ticket.columnName === this.columnName ? this.createTask(ticket) : null);
+  }
+
+  onMove(newColumn, ticket) {
+    console.log('updated to', ticket);
+    this.component.destroy();
   }
 
 }

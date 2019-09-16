@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 /* interface */
 import { Ticket } from '@app/dashboard/models';
@@ -18,7 +18,10 @@ import { animations } from '@app/dashboard/components/ticket/ticket.animations';
 export class TicketComponent implements OnInit {
   faUser = faUser;
   faEllipsisV = faEllipsisV;
+
   @Input() ticket: Ticket;
+  @Output() move = new EventEmitter();
+
   columns = [
     { id: 1, name: 'Backlog' },
     { id: 2, name: 'In Progress' },
@@ -28,5 +31,11 @@ export class TicketComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+
+  moveTask(event) {
+    // console.log('click', event, this.ticket);
+    const ticketColumn = event;
+    this.move.emit({ticketColumn, ...this.ticket});
+  }
 
 }
