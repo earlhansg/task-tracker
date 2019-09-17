@@ -21,6 +21,7 @@ export class TicketComponent implements OnInit {
 
   @Input() ticket: Ticket;
   @Output() move = new EventEmitter();
+  index: number;
 
   columns = [
     { id: 1, name: 'Backlog' },
@@ -34,8 +35,8 @@ export class TicketComponent implements OnInit {
 
   moveTask(event) {
     // console.log('click', event, this.ticket);
-    const ticketColumn = event;
-    this.move.emit({ticketColumn, ...this.ticket});
+    const columnName = event;
+    this.move.emit({...this.ticket, columnName}, this.index);
   }
 
 }

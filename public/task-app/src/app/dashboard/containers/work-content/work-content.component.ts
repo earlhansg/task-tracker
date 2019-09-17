@@ -1,4 +1,5 @@
-import { Component, ViewChildren, QueryList, OnInit, OnDestroy, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ViewChildren, QueryList, OnInit, AfterViewInit,
+         OnDestroy, TemplateRef, ViewChild } from '@angular/core';
 
 /* components  */
 import * as dashboardComponent from '@app/dashboard/components';
@@ -24,7 +25,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './work-content.component.html',
   styleUrls: ['./work-content.component.scss']
 })
-export class WorkContentComponent implements OnInit, OnDestroy {
+export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   faPlus = faPlus;
   column: dashboardComponent.ColumnComponent;
 
@@ -56,6 +57,12 @@ export class WorkContentComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngAfterViewInit() {
+    this.columns.forEach((item) => {
+      item.updated.subscribe(data => this.updateData(data));
+    });
+  }
+
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
@@ -82,6 +89,10 @@ export class WorkContentComponent implements OnInit, OnDestroy {
       data: `${item.name} ticket added`,
       duration: 2500
     });
+  }
+
+  updateData(item) {
+    this.addTask(item);
   }
 
 }
