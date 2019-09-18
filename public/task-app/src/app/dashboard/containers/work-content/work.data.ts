@@ -3,6 +3,7 @@ import { Column } from '@app/dashboard/enums/column.enum';
 
 
 export const ticket: Ticket = {
+    id: 7,
     name: 'Database',
     type: 'Backend',
     description: 'normalize db in the project',
@@ -14,6 +15,7 @@ export const ticket: Ticket = {
 
 export const tickets: Ticket[] = [
     {
+        id: 1,
         name: 'Dashboard UI',
         type: 'UI',
         description: 'create UI for dashboard',
@@ -22,6 +24,7 @@ export const tickets: Ticket[] = [
         columnName: Column.Backlog
     },
     {
+        id: 2,
         name: 'Login',
         type: 'Functionality',
         description: 'create function for login',
@@ -30,6 +33,7 @@ export const tickets: Ticket[] = [
         columnName: Column.inProgress
     },
     {
+        id: 3,
         name: 'Signup UI',
         type: 'UI',
         description: 'create UI for signup',
@@ -38,6 +42,7 @@ export const tickets: Ticket[] = [
         columnName: Column.Review
     },
     {
+        id: 4,
         name: 'Setup routes',
         type: 'Backend',
         description: 'setup routes in the backend',
@@ -46,6 +51,7 @@ export const tickets: Ticket[] = [
         columnName: Column.Backlog
     },
     {
+        id: 5,
         name: 'Signup',
         type: 'Functionality',
         description: 'create function for signup',
@@ -54,6 +60,7 @@ export const tickets: Ticket[] = [
         columnName: Column.Backlog
     },
     {
+        id: 6,
         name: 'Lazy Load',
         type: 'Feature',
         description: 'setup lazy load to the application',

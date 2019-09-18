@@ -20,8 +20,7 @@ export class TicketComponent implements OnInit {
   faEllipsisV = faEllipsisV;
 
   @Input() ticket: Ticket;
-  @Output() move = new EventEmitter();
-  index: number;
+  @Output() remove = new EventEmitter();
 
   columns = [
     { id: 1, name: 'Backlog' },
@@ -34,9 +33,8 @@ export class TicketComponent implements OnInit {
   ngOnInit() {}
 
   moveTask(event) {
-    // console.log('click', event, this.ticket);
     const columnName = event;
-    this.move.emit({...this.ticket, columnName}, this.index);
+    this.remove.emit({...this.ticket, columnName});
   }
 
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, ViewChild, AfterContentInit,
-         ViewContainerRef, ComponentFactoryResolver, ComponentRef,
-         Output, EventEmitter, ViewChildren, QueryList } from '@angular/core';
+import { Component, Input, ViewChild, AfterContentInit,
+         ViewContainerRef, ComponentFactoryResolver,
+         Output, EventEmitter } from '@angular/core';
 
 /* component */
 import * as fromComponents from '@app/dashboard/components';
@@ -8,7 +8,6 @@ import * as fromComponents from '@app/dashboard/components';
 import { Ticket } from '@app/dashboard/models';
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { tickets } from '@app/dashboard/containers/work-content/work.data';
 
 @Component({
   selector: 'app-column',
@@ -24,51 +23,35 @@ export class ColumnComponent implements AfterContentInit {
   @ViewChild('container', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
   faArrowDown = faArrowDown;
-  taskFactory;
-  component: ComponentRef<fromComponents.TicketComponent>;
-  filtered;
+  createdTickets = [];
 
   constructor(private resolver: ComponentFactoryResolver) {}
 
   ngAfterContentInit() {
-    // this.filtered = this.tickets.filter(item => item.columnName === this.columnName).length;
-    console.log(this.filtered);
-    this.fetchTask();
+    this.fetchTicket();
   }
 
-  createTask(ticket: Ticket, i) {
-    console.log(i);
-    this.taskFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
-    this.component = this.container.createComponent(this.taskFactory, i);
-    // // console.log(index);
-    this.component.instance.index = i;
-    this.component.instance.ticket = ticket;
-    this.component.instance.move.subscribe((task, ind) => {
-      this.onMove(task, ind);
-    });
+  createTask(ticket: Ticket) {
+    const ticketFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
+    const componentRef = this.container.createComponent(ticketFactory);
+    componentRef.instance.ticket = ticket;
+    componentRef.instance.remove.subscribe((removeticket) => this.onRemove(removeticket));
+    const instance: fromComponents.TicketComponent = componentRef.instance as fromComponents.TicketComponent;
+
+    this.createdTickets.push(componentRef);
   }
 
-  fetchTask() {
-    let filtered = this.tickets.filter(item => item.columnName === this.columnName).length - 1;
-    // this.tickets.forEach((ticket: Ticket) =>
-    //     ticket.columnName === this.columnName ? this.createTask(ticket) : null);
-    this.tickets.forEach((ticket: Ticket) => {
-      if (ticket.columnName === this.columnName) {
-        this.createTask(ticket, filtered);
-        filtered--;
-      }
-    });
+  fetchTicket() {
+    this.tickets.forEach((ticket: Ticket) =>
+        ticket.columnName === this.columnName ? this.createTask(ticket) : null);
   }
 
 
-  onMove(updatedTask, index) {
-    console.log(index);
-    // this.updated.emit(updatedTask);
-    // const index = this.container.indexOf(component.hostView);
-    // console.log(index);
-    this.container.remove(index);
-    // this.container
-    // this.container.remove()
+  onRemove(removeticket: Ticket) {
+    const taskIndex = this.createdTickets.findIndex(({ instance }) =>
+      instance.ticket.id === removeticket.id);
+    this.container.remove(taskIndex);
+    this.createdTickets.splice(taskIndex, 1);
   }
 
 }
