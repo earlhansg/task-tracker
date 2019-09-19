@@ -31,7 +31,7 @@ export class ColumnComponent implements AfterContentInit {
     this.fetchTicket();
   }
 
-  createTask(ticket: Ticket) {
+  createTicket(ticket: Ticket) {
     const ticketFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
     const componentRef = this.container.createComponent(ticketFactory);
     componentRef.instance.ticket = ticket;
@@ -43,15 +43,16 @@ export class ColumnComponent implements AfterContentInit {
 
   fetchTicket() {
     this.tickets.forEach((ticket: Ticket) =>
-        ticket.columnName === this.columnName ? this.createTask(ticket) : null);
+        ticket.columnName === this.columnName ? this.createTicket(ticket) : null);
   }
 
 
   onRemove(removeticket: Ticket) {
-    const taskIndex = this.createdTickets.findIndex(({ instance }) =>
+    const ticketIndex = this.createdTickets.findIndex(({ instance }) =>
       instance.ticket.id === removeticket.id);
-    this.container.remove(taskIndex);
-    this.createdTickets.splice(taskIndex, 1);
+    this.container.remove(ticketIndex);
+    this.createdTickets.splice(ticketIndex, 1);
+    this.updated.emit(removeticket);
   }
 
 }

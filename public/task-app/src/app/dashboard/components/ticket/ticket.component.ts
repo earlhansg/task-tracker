@@ -32,7 +32,7 @@ export class TicketComponent implements OnInit {
 
   ngOnInit() {}
 
-  moveTask(event) {
+  moveTicket(event) {
     const columnName = event;
     this.remove.emit({...this.ticket, columnName});
   }

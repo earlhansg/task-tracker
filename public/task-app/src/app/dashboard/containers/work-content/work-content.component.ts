@@ -52,20 +52,23 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
       const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
       if (ticketStatus) {
         const item: Ticket = {...values.formValues, created, columnName };
-        this.addTask(item);
+        this.addTicket(item, 'addTicket');
       }
     });
   }
 
   ngAfterViewInit() {
     this.columns.forEach((item) => {
-      item.updated.subscribe(data => this.updateData(data));
+      item.updated.subscribe(data => this.addTicket(data, 'updateTicket'));
     });
   }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+    this.columns.forEach((item) => {
+      item.updated.unsubscribe();
+    });
   }
 
   openDialog(): void {
@@ -81,18 +84,15 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
-  addTask(item: Ticket) {
+  addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
     this.columns
         .forEach((val) => val.columnName === item.columnName
-        ? val.createTask(item) : null);
+        ? val.createTicket(item) : null);
+    const message = type === 'addTicket' ? 'added' : 'updated';
     this.snackBar.openFromComponent(sharedComponent.SuccessMessageComponent, {
-      data: `${item.name} ticket added`,
+      data: `${item.name} ticket ${message}`,
       duration: 2500
     });
-  }
-
-  updateData(item) {
-    this.addTask(item);
   }
 
 }
