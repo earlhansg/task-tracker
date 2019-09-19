@@ -29,7 +29,8 @@
         <mat-menu #column="matMenu">
             <button mat-menu-item 
                     *ngFor="let col of columns"
-                    (click)="moveTicket(col.name)">{{col.name}}</button>
+                    (click)="moveTicket(col.name)"
+                    [disabled]="col.name === ticket.columnName">{{col.name}}</button>
         </mat-menu>
     </div>
     <!-- end of class btn-move -->
