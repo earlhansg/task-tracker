@@ -12,5 +12,13 @@ export interface ProfilePicture {
     url: string;
 }
 
+export interface User {
+    id: number;
+    username: string;
+    firstName: string;
+    lastName: string;
+    position: string;
+    profilePicture: ProfilePicture;
+}
 
 export type UserProfile = Credentials & ProfilePicture;
