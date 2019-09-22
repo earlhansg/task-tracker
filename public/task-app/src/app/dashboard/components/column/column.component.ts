@@ -5,10 +5,11 @@ import { Component, Input, ViewChild, AfterContentInit,
 /* component */
 import * as fromComponents from '@app/dashboard/components';
 /* interface */
-import { Ticket } from '@app/dashboard/models';
+import { Ticket, User } from '@app/dashboard/models';
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-
+/* mock data */
+import { users } from '@app/dashboard/containers/work-content/work.data';
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
@@ -18,14 +19,20 @@ export class ColumnComponent implements AfterContentInit {
 
   @Input() columnName: string;
   @Input() tickets: Ticket[];
+  @Input() users: Map<number, User>;
   @Output() updated: EventEmitter<Ticket> = new EventEmitter<Ticket>();
 
   @ViewChild('container', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
   faArrowDown = faArrowDown;
   createdTickets = [];
+  mockUsers: User[] = users;
+  userMap: Map<number, User>;
 
-  constructor(private resolver: ComponentFactoryResolver) {}
+  constructor(private resolver: ComponentFactoryResolver) {
+    const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);
+    this.userMap = new Map<number, User> (myMap);
+  }
 
   ngAfterContentInit() {
     this.fetchTicket();
@@ -35,6 +42,7 @@ export class ColumnComponent implements AfterContentInit {
     const ticketFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
     const componentRef = this.container.createComponent(ticketFactory);
     componentRef.instance.ticket = ticket;
+    componentRef.instance.users = this.userMap;
     componentRef.instance.remove.subscribe((removeticket) => this.onRemove(removeticket));
     const instance: fromComponents.TicketComponent = componentRef.instance as fromComponents.TicketComponent;
 

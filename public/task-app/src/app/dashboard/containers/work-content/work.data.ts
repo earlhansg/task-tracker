@@ -38,7 +38,7 @@ export const tickets: Ticket[] = [
         type: 'UI',
         description: 'create UI for signup',
         created: '08/09/17',
-        assign: 1,
+        assign: 4,
         columnName: Column.Review
     },
     {
@@ -47,7 +47,7 @@ export const tickets: Ticket[] = [
         type: 'Backend',
         description: 'setup routes in the backend',
         created: '08/09/17',
-        assign: 3,
+        assign: 7,
         columnName: Column.Backlog
     },
     {
@@ -60,7 +60,7 @@ export const tickets: Ticket[] = [
         columnName: Column.Backlog
     },
     {
-        id: 6,
+        id: 8,
         name: 'Lazy Load',
         type: 'Feature',
         description: 'setup lazy load to the application',
@@ -78,8 +78,8 @@ export const users: User[] = [
         lastName: 'Genoso',
         position: 'frontend developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/me.jpg',
+            caption: 'my profile picture'
         }
     },
     {
@@ -89,8 +89,8 @@ export const users: User[] = [
         lastName: 'Kshewengger',
         position: 'backend developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/yuhan.jpg',
+            caption: 'my profile picture'
         }
     },
     {
@@ -100,74 +100,74 @@ export const users: User[] = [
         lastName: 'Almuete',
         position: 'frontend developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/kristy.png',
+            caption: 'my profile picture'
         }
     },
     {
-        id: 3,
+        id: 4,
         username: 'billygwaps@task.tracker.com',
         firstName: 'Billy',
         lastName: 'Licaro',
         position: 'backend developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/billy.jpeg',
+            caption: 'my profile picture'
         }
     },
     {
-        id: 4,
+        id: 5,
         username: 'jasongwaps@task.tracker.com',
         firstName: 'Jason',
         lastName: 'Bayocot',
         position: 'backend developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/jason.jpeg',
+            caption: 'my profile picture'
         }
     },
     {
-        id: 5,
+        id: 6,
         username: 'rhyangwaps@task.tracker.com',
         firstName: 'Rhyan',
         lastName: 'Gabales',
         position: 'fullstack developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/rhyan.jpeg',
+            caption: 'my profile picture'
         }
     },
     {
-        id: 6,
+        id: 7,
         username: 'jaklordgwaps@task.tracker.com',
         firstName: 'Jacklord',
         lastName: 'Guillena',
         position: 'fullstack developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/jacklord.jpeg',
+            caption: 'my profile picture'
         }
     },
     {
-        id: 7,
+        id: 8,
         username: 'kjlonggwaps@task.tracker.com',
         firstName: 'Kjlong',
         lastName: 'Longaquit',
         position: 'backend developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/kjlong.png',
+            caption: 'my profile picture'
         }
     },
     {
-        id: 8,
+        id: 9,
         username: 'maxgwaps@task.tracker.com',
         firstName: 'Max',
         lastName: 'Labial',
         position: 'backend developer',
         profilePicture: {
-            url: '',
-            caption: ''
+            url: 'assets/images/profile/max.jpg',
+            caption: 'my profile picture'
         }
     }
 ];

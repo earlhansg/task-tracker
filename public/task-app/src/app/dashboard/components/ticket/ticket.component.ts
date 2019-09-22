@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 /* interface */
-import { Ticket } from '@app/dashboard/models';
+import { Ticket, User } from '@app/dashboard/models';
 
 /* icons */
 import { faUser, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +20,7 @@ export class TicketComponent implements OnInit {
   faEllipsisV = faEllipsisV;
 
   @Input() ticket: Ticket;
+  @Input() users: Map<number, User>;
   @Output() remove = new EventEmitter();
 
   columns = [
