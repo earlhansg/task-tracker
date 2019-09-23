@@ -1,136 +1,103 @@
 {
-    "toppings": [
-      {
-        "id": 1,
-        "name": "anchovy"
-      },
-      {
-        "id": 2,
-        "name": "bacon"
-      },
-      {
-        "id": 3,
-        "name": "basil"
-      },
-      {
-        "id": 4,
-        "name": "chili"
-      },
-      {
-        "id": 5,
-        "name": "mozzarella"
-      },
-      {
-        "id": 6,
-        "name": "mushroom"
-      },
-      {
-        "id": 7,
-        "name": "olive"
-      },
-      {
-        "id": 8,
-        "name": "onion"
-      },
-      {
-        "id": 9,
-        "name": "pepper"
-      },
-      {
-        "id": 10,
-        "name": "pepperoni"
-      },
-      {
-        "id": 11,
-        "name": "sweetcorn"
-      },
-      {
-        "id": 12,
-        "name": "tomato"
-      }
-    ],
-    "pizzas": [
-      {
-        "name": "Blazin' Inferno",
-        "toppings": [
-          {
-            "id": 10,
-            "name": "pepperoni"
-          },
-          {
-            "id": 9,
-            "name": "pepper"
-          },
-          {
-            "id": 3,
-            "name": "basil"
-          },
-          {
-            "id": 4,
-            "name": "chili"
-          },
-          {
-            "id": 7,
-            "name": "olive"
-          },
-          {
-            "id": 2,
-            "name": "bacon"
-          }
-        ],
-        "id": 1
-      },
-      {
-        "name": "Seaside Surfin'",
-        "toppings": [
-          {
-            "id": 6,
-            "name": "mushroom"
-          },
-          {
-            "id": 7,
-            "name": "olive"
-          },
-          {
-            "id": 2,
-            "name": "bacon"
-          },
-          {
-            "id": 3,
-            "name": "basil"
-          },
-          {
+    "users": [
+        {
             "id": 1,
-            "name": "anchovy"
-          },
-          {
-            "id": 8,
-            "name": "onion"
-          },
-          {
-            "id": 11,
-            "name": "sweetcorn"
-          },
-          {
-            "id": 9,
-            "name": "pepper"
-          },
-          {
+            "username": "earlhansg@task.tracker.com",
+            "firstName": "Earl",
+            "lastName": "Genoso",
+            "position": "frontend developer",
+            "profilePicture": {
+                "url": "assets/images/profile/me.jpg",
+                "caption": "my profile picture"
+            }
+        },
+        {
+            "id": 2,
+            "username": "yuhanzkie@task.tracker.com",
+            "firstName": "Yuhan",
+            "lastName": "Kshewengger",
+            "position": "backend developer",
+            "profilePicture": {
+                "url": "assets/images/profile/yuhan.jpg",
+                "caption": "my profile picture"
+            }
+        },
+        {
+            "id": 3,
+            "username": "kshewengger@task.tracker.com",
+            "firstName": "Kristy Mae",
+            "lastName": "Almuete",
+            "position": "frontend developer",
+            "profilePicture": {
+                "url": "assets/images/profile/kristy.png",
+                "caption": "my profile picture"
+            }
+        },
+        {
+            "id": 4,
+            "username": "billygwaps@task.tracker.com",
+            "firstName": "Billy",
+            "lastName": "Licaro",
+            "position": "backend developer",
+            "profilePicture": {
+                "url": "assets/images/profile/billy.jpeg",
+                "caption": "my profile picture"
+            }
+        },
+        {
             "id": 5,
-            "name": "mozzarella"
-          }
-        ],
-        "id": 2
-      },
-      {
-        "name": "Plain Ol' Pepperoni",
-        "toppings": [
-          {
-            "id": 10,
-            "name": "pepperoni"
-          }
-        ],
-        "id": 3
-      }
+            "username": "jasongwaps@task.tracker.com",
+            "firstName": "Jason",
+            "lastName": "Bayocot",
+            "position": "backend developer",
+            "profilePicture": {
+                "url": "assets/images/profile/jason.jpeg",
+                "caption": "my profile picture"
+            }
+        },
+        {
+            "id": 6,
+            "username": "rhyangwaps@task.tracker.com",
+            "firstName": "Rhyan",
+            "lastName": "Gabales",
+            "position": "fullstack developer",
+            "profilePicture": {
+                "url": "assets/images/profile/rhyan.jpeg",
+                "caption": "my profile picture"
+            }
+        },
+        {
+            "id": 7,
+            "username": "jaklordgwaps@task.tracker.com",
+            "firstName": "Jacklord",
+            "lastName": "Guillena",
+            "position": "fullstack developer",
+            "profilePicture": {
+                "url": "assets/images/profile/jacklord.jpeg",
+                "caption": "my profile picture"
+            }
+        },
+        {
+            "id": 8,
+            "username": "kjlonggwaps@task.tracker.com",
+            "firstName": "Kjlong",
+            "lastName": "Longaquit",
+            "position": "backend developer",
+            "profilePicture": {
+                "url": "assets/images/profile/kjlong.png",
+                "caption": "my profile picture"
+            }
+        },
+        {
+            "id": 9,
+            "username": "maxgwaps@task.tracker.com",
+            "firstName": "Max",
+            "lastName": "Labial",
+            "position": "backend developer",
+            "profilePicture": {
+                "url": "assets/images/profile/max.jpg",
+                "caption": "my profile picture"
+            }
+        }
     ]
-  }
+}
