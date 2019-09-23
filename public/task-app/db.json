@@ -99,5 +99,61 @@
                 "caption": "my profile picture"
             }
         }
+    ],
+    "tickets": [
+        {
+            "id": 1,
+            "name": "Dashboard UI",
+            "type": "UI",
+            "description": "create UI for dashboard",
+            "created": "08/09/17",
+            "assign": 3,
+            "columnName": "Backlog"
+        },
+        {
+            "id": 2,
+            "name": "Login",
+            "type": "Functionality",
+            "description": "create function for login",
+            "created": "08/09/17",
+            "assign": 1,
+            "columnName": "In Progress"
+        },
+        {
+            "id": 3,
+            "name": "Signup UI",
+            "type": "UI",
+            "description": "create UI for signup",
+            "created": "08/09/17",
+            "assign": 4,
+            "columnName": "Review"
+        },
+        {
+            "id": 4,
+            "name": "Setup routes",
+            "type": "Backend",
+            "description": "setup routes in the backend",
+            "created": "08/09/17",
+            "assign": 7,
+            "columnName": "Backlog"
+        },
+        {
+            "id": 5,
+            "name": "Signup",
+            "type": "Functionality",
+            "description": "create function for signup",
+            "created": "08/09/17",
+            "assign": 2,
+            "columnName": "Backlog"
+        },
+        {
+            "id": 8,
+            "name": "Lazy Load",
+            "type": "Feature",
+            "description": "setup lazy load to the application",
+            "created": "08/09/17",
+            "assign": 1,
+            "columnName": "Review"
+        }
     ]
 }
