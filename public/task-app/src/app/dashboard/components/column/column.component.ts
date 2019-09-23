@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, AfterContentInit,
          ViewContainerRef, ComponentFactoryResolver,
-         Output, EventEmitter } from '@angular/core';
+         Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 /* component */
 import * as fromComponents from '@app/dashboard/components';
@@ -12,6 +12,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { users } from '@app/dashboard/containers/work-content/work.data';
 @Component({
   selector: 'app-column',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss']
 })

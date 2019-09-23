@@ -1,5 +1,5 @@
 import { Component, ViewChildren, QueryList, OnInit, AfterViewInit,
-         OnDestroy, TemplateRef, ViewChild } from '@angular/core';
+         OnDestroy, TemplateRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 /* components  */
 import * as dashboardComponent from '@app/dashboard/components';
@@ -22,6 +22,7 @@ import { FormService } from '@app/shared/services';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-work-content',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './work-content.component.html',
   styleUrls: ['./work-content.component.scss']
 })

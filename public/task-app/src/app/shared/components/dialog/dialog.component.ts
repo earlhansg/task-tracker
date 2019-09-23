@@ -1,4 +1,5 @@
-import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, Inject, OnInit,
+         OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 
 /* dialog */
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -9,6 +10,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dialog',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })

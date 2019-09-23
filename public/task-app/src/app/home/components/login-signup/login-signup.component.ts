@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { FormComponent } from '@app/shared/components/form/form.component';
 
@@ -9,6 +8,7 @@ import { tabs, Tab } from '@app/home/components/login-signup/login-signup.data';
 
 @Component({
   selector: 'app-login-signup',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './login-signup.component.html',
   styleUrls: ['./login-signup.component.scss']
 })

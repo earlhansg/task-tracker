@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input,
+         Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 /* interface */
 import { Ticket, User } from '@app/dashboard/models';
@@ -11,6 +12,7 @@ import { animations } from '@app/dashboard/components/ticket/ticket.animations';
 
 @Component({
   selector: 'app-ticket',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.scss'],
   animations: [ animations.slideDownOpacityTrigger ]

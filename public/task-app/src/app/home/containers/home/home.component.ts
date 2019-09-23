@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 
 import { animations } from '@app/home/containers/home/home.animations';
 import { Subscription } from 'rxjs';
@@ -8,6 +8,7 @@ import { BreakPointsService } from '@app/shared/services';
 
 @Component({
   selector: 'app-home',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   animations: [ animations.slideLeftOpacityTrigger ]
