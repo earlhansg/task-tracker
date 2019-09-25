@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
-import { HttpMethodEnum } from '@app/shared/enums/';
+import { HttpMethodEnum } from '@app/shared/enums';
 
 
 export abstract class RestService {
@@ -12,12 +12,12 @@ export abstract class RestService {
               protected baseUrl: string) {}
 
   protected request(relativeUrl: string, method: HttpMethodEnum, data?: any): Observable<any> {
-    const url = this.baseUrl + relativeUrl;
+    const url     = this.baseUrl + relativeUrl;
 
     return this.http[method](url, data)
       .pipe(
-        map(response => response),
         catchError(err => throwError(err))
       );
   }
+
 }

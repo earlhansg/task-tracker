@@ -51,8 +51,8 @@ export class ColumnComponent implements AfterContentInit {
   }
 
   fetchTicket() {
-    this.tickets.forEach((ticket: Ticket) =>
-        ticket.columnName === this.columnName ? this.createTicket(ticket) : null);
+      this.tickets.forEach((ticket: Ticket) =>
+      ticket.columnName === this.columnName ? this.createTicket(ticket) : null);
   }
 
 

@@ -1,5 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { TicketsResolverService } from '@app/dashboard/services/tickets-resolver.service';
+
 // Containers
 import * as fromContainers from '@app/dashboard/containers';
 
@@ -10,7 +12,10 @@ const routes: Routes = [
     children: [
       {
         path: 'work',
-        component: fromContainers.WorkContentComponent
+        component: fromContainers.WorkContentComponent,
+        resolve: {
+          tickets: TicketsResolverService
+        }
       },
       { path: '', redirectTo: 'work', pathMatch: 'full' }
     ]

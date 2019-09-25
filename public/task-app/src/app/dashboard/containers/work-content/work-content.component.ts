@@ -1,6 +1,6 @@
 import { Component, ViewChildren, QueryList, OnInit, AfterViewInit,
          OnDestroy, TemplateRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 /* components  */
 import * as dashboardComponent from '@app/dashboard/components';
 import * as sharedComponent from '@app/shared/components';
@@ -8,8 +8,6 @@ import * as sharedComponent from '@app/shared/components';
 import { Ticket } from '@app/dashboard/models';
 /* enum */
 import { Column } from '@app/dashboard/enums/column.enum';
-/* mock data */
-import { tickets } from '@app/dashboard/containers/work-content/work.data';
 /* icons */
 import { faPlus, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 /* dialog */
@@ -33,7 +31,7 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(dashboardComponent.ColumnComponent)
   columns: QueryList<dashboardComponent.ColumnComponent>;
 
-  mockData: Ticket[] = tickets;
+  mockData: Ticket[];
   subscription: Subscription;
 
   header = 'Create Ticket';
@@ -44,9 +42,12 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(public dialog: MatDialog,
               private snackBar: MatSnackBar,
-              private formService: FormService) { }
+              private formService: FormService,
+              private activeRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    // tslint:disable-next-line:no-string-literal
+    this.mockData = this.activeRoute.snapshot.data['tickets'];
     this.subscription = this.formService.getValues().subscribe(values => {
       const created      = '08/09/17';
       const columnName   = Column.Backlog;
