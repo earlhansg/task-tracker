@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, AfterContentInit,
          ViewContainerRef, ComponentFactoryResolver,
-         Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+         Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 /* component */
 import * as fromComponents from '@app/dashboard/components';
@@ -8,11 +8,8 @@ import * as fromComponents from '@app/dashboard/components';
 import { Ticket, User } from '@app/dashboard/models';
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-/* mock data */
-import { users } from '@app/dashboard/containers/work-content/work.data';
 @Component({
   selector: 'app-column',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss']
 })
@@ -27,15 +24,11 @@ export class ColumnComponent implements AfterContentInit {
 
   faArrowDown = faArrowDown;
   createdTickets = [];
-  // mockUsers: User[] = users;
   mockUsers: User[];
   userMap: Map<number, User>;
 
   constructor(private resolver: ComponentFactoryResolver,
-              private activeRoute: ActivatedRoute) {
-    // const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);
-    // this.userMap = new Map<number, User> (myMap);
-  }
+              private activeRoute: ActivatedRoute) {}
 
   ngAfterContentInit() {
     this.fetchUser();
@@ -43,7 +36,6 @@ export class ColumnComponent implements AfterContentInit {
   }
 
   fetchUser() {
-    console.log('fetch user');
     // tslint:disable-next-line:no-string-literal
     this.mockUsers = this.activeRoute.snapshot.data['users'];
     const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);

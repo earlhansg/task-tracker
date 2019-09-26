@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 /* data */
 import { ticket, TicketForm } from '@app/dashboard/components/create-ticket-form/create-ticket-form.data';
@@ -6,10 +6,8 @@ import { ticket, TicketForm } from '@app/dashboard/components/create-ticket-form
 import { FormService } from '@app/shared/services/form/form.service';
 
 
-
 @Component({
   selector: 'app-create-ticket-form',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './create-ticket-form.component.html',
   styleUrls: ['./create-ticket-form.component.scss']
 })

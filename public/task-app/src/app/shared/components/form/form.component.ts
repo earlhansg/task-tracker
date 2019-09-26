@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { FormlyFieldConfig } from '@ngx-formly/core';
@@ -8,7 +8,6 @@ import { Ticket } from '@app/dashboard/models';
 import { Credentials } from '@app/shared/models';
 @Component({
   selector: 'app-form',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })

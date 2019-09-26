@@ -5,6 +5,6 @@
   <button type="submit"
           color="primary"
           mat-stroked-button
-          (click)="submitForm(model)">{{ buttonLabel }}</button>
-
+          (click)="submitForm(model)"
+          [disabled]="form.invalid">{{ buttonLabel }}</button>
 </formly-form>

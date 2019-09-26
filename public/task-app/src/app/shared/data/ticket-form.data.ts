@@ -27,8 +27,9 @@ export const ticketFormFields: FormlyFieldConfig[] = [
             { label: 'Backend', value: 'Backend' },
             { label: 'Functionality', value: 'Functionality' },
             { label: 'Bug', value: 'Bug' },
-        ]
-    }
+        ],
+        required: true
+    },
   },
   {
     key: 'description',
@@ -45,7 +46,8 @@ export const ticketFormFields: FormlyFieldConfig[] = [
       label: 'Select user ...',
       options: [
         ...result
-      ]
+      ],
+      required: true
     }
   }
 ];

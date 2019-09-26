@@ -1,5 +1,5 @@
 import { Component, ViewChildren, QueryList, OnInit, AfterViewInit,
-         OnDestroy, TemplateRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+         OnDestroy, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 /* components  */
 import * as dashboardComponent from '@app/dashboard/components';
@@ -18,9 +18,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormService } from '@app/shared/services';
 /* rxjs */
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-work-content',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './work-content.component.html',
   styleUrls: ['./work-content.component.scss']
 })
@@ -87,7 +87,6 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
-    console.log('add', item);
     this.columns
         .forEach((val) => val.columnName === item.columnName
         ? val.createTicket(item) : null);
