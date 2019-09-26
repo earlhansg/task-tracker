@@ -3,17 +3,17 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 
 import { Observable } from 'rxjs';
 
-import { DashboardService } from './dashboard.service';
+import { TicketsService } from './tickets.service';
 
 import { Ticket } from '@app/dashboard/models';
 
 
 @Injectable({ providedIn: 'root' })
 export class TicketsResolverService implements Resolve<Ticket[]> {
-  constructor(private dashboardService: DashboardService) {}
+  constructor(private ticketService: TicketsService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Ticket[]> {
-    return this.dashboardService.getTickets();
+    return this.ticketService.getTickets();
   }
 
 }

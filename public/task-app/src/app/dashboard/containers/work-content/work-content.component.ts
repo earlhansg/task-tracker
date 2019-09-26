@@ -87,6 +87,7 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
+    console.log('add', item);
     this.columns
         .forEach((val) => val.columnName === item.columnName
         ? val.createTicket(item) : null);

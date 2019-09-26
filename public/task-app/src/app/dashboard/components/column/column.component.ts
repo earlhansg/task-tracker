@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, AfterContentInit,
          ViewContainerRef, ComponentFactoryResolver,
          Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 /* component */
 import * as fromComponents from '@app/dashboard/components';
 /* interface */
@@ -27,16 +27,27 @@ export class ColumnComponent implements AfterContentInit {
 
   faArrowDown = faArrowDown;
   createdTickets = [];
-  mockUsers: User[] = users;
+  // mockUsers: User[] = users;
+  mockUsers: User[];
   userMap: Map<number, User>;
 
-  constructor(private resolver: ComponentFactoryResolver) {
-    const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);
-    this.userMap = new Map<number, User> (myMap);
+  constructor(private resolver: ComponentFactoryResolver,
+              private activeRoute: ActivatedRoute) {
+    // const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);
+    // this.userMap = new Map<number, User> (myMap);
   }
 
   ngAfterContentInit() {
+    this.fetchUser();
     this.fetchTicket();
+  }
+
+  fetchUser() {
+    console.log('fetch user');
+    // tslint:disable-next-line:no-string-literal
+    this.mockUsers = this.activeRoute.snapshot.data['users'];
+    const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);
+    this.userMap = new Map<number, User> (myMap);
   }
 
   createTicket(ticket: Ticket) {

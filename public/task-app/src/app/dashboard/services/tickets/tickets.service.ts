@@ -9,7 +9,7 @@ import { Ticket } from '@app/dashboard/models';
 import { HttpMethodEnum } from '@app/shared/enums';
 
 @Injectable({ providedIn: 'root' })
-export class DashboardService extends RestService {
+export class TicketsService extends RestService {
  url = '/tickets';
 
  constructor(http: HttpClient,
