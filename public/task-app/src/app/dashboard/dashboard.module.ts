@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { reducers, effects } from './store';
+
 /* Components */
 import * as fromComponents from '@app/dashboard/components';
 
@@ -18,7 +23,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     // Custom Modules
     DashboardRouting,
     SharedModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    StoreModule.forFeature('tracker', reducers),
+    EffectsModule.forFeature(effects),
   ],
   declarations: [...fromContainers.containers, ...fromComponents.components],
   exports: [...fromContainers.containers, ...fromComponents.components],
