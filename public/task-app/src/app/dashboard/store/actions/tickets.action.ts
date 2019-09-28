@@ -68,4 +68,7 @@ export type TicketAction =
 | LoadTicketsSuccess
 | CreateTicket
 | CreateTicketFail
-| CreateTicketSuccess;
+| CreateTicketSuccess
+| UpdateTicket
+| UpdateTicketFail
+| UpdateTicketSuccess;
