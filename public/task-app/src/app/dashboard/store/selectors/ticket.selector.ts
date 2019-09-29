@@ -13,7 +13,7 @@ export const getTicketEntities = createSelector(
     fromTickets.getTicketsEntities
 );
 
-export const getAllPizzas = createSelector(getTicketEntities, entities => {
+export const getAllTickets = createSelector(getTicketEntities, entities => {
     return Object.keys(entities).map(id => entities[parseInt(id, 10)]);
 });
 

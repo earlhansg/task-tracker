@@ -24,7 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DashboardRouting,
     SharedModule,
     FlexLayoutModule,
-    StoreModule.forFeature('tracker', reducers),
+    StoreModule.forFeature('task', reducers),
     EffectsModule.forFeature(effects),
   ],
   declarations: [...fromContainers.containers, ...fromComponents.components],

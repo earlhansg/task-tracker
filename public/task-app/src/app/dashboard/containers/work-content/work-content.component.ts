@@ -17,7 +17,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 /* service */
 import { FormService } from '@app/shared/services';
 /* rxjs */
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+/* store */
+import { Store } from '@ngrx/store';
+import * as fromStore from '../../store';
 
 @Component({
   selector: 'app-work-content',
@@ -39,24 +42,21 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('createTicketForm', {static: false})
   createTicketFormTemplate: TemplateRef<dashboardComponent.CreateTicketFormComponent>;
 
+  tickets$: Observable<Ticket[]>;
 
   constructor(public dialog: MatDialog,
               private snackBar: MatSnackBar,
               private formService: FormService,
-              private activeRoute: ActivatedRoute) {}
+              private activeRoute: ActivatedRoute,
+              private store: Store<fromStore.TaskState>) {}
 
   ngOnInit() {
+    this.tickets$ = this.store.select(fromStore.getAllTickets);
+    this.store.dispatch(new fromStore.LoadTickets());
+
     // tslint:disable-next-line:no-string-literal
     this.mockData = this.activeRoute.snapshot.data['tickets'];
-    this.subscription = this.formService.getValues().subscribe(values => {
-      const created      = '08/09/17';
-      const columnName   = Column.Backlog;
-      const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
-      if (ticketStatus) {
-        const item: Ticket = {...values.formValues, created, columnName };
-        this.addTicket(item, 'addTicket');
-      }
-    });
+    this.createTicketfromDialog();
   }
 
   ngAfterViewInit() {
@@ -85,6 +85,17 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  createTicketfromDialog() {
+    this.subscription = this.formService.getValues().subscribe(values => {
+      const created      = '08/09/17';
+      const columnName   = Column.Backlog;
+      const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
+      if (ticketStatus) {
+        const item: Ticket = {...values.formValues, created, columnName };
+        this.addTicket(item, 'addTicket');
+      }
+    });
+  }
 
   addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
     this.columns

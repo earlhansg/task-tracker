@@ -44,6 +44,9 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
         }
       }
       ),
+    StoreDevtoolsModule.instrument({
+        maxAge: 10
+    }),
     EffectsModule.forRoot([]),
     environment.development ? StoreDevtoolsModule.instrument() : [],
   ],

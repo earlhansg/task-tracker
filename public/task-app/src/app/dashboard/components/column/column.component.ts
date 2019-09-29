@@ -8,6 +8,7 @@ import * as fromComponents from '@app/dashboard/components';
 import { Ticket, User } from '@app/dashboard/models';
 /* icons */
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
