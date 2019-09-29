@@ -35,7 +35,15 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     BrowserAnimationsModule,
     HttpClientModule,
     AppRouting,
-    StoreModule.forRoot({}, { metaReducers }),
+    StoreModule.forRoot({},
+      {
+        metaReducers,
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true
+        }
+      }
+      ),
     EffectsModule.forRoot([]),
     environment.development ? StoreDevtoolsModule.instrument() : [],
   ],
