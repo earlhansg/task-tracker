@@ -13,6 +13,8 @@ import { AppRouting } from './app-routing.module';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+import { reducers } from './store';
+
 // not used in production
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
@@ -35,7 +37,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     BrowserAnimationsModule,
     HttpClientModule,
     AppRouting,
-    StoreModule.forRoot({},
+    StoreModule.forRoot(reducers,
       {
         metaReducers,
         runtimeChecks: {
