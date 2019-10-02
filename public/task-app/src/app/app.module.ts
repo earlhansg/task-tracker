@@ -10,10 +10,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRouting } from './app-routing.module';
 
+import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { reducers } from './store';
+import { reducers, CustomSerializer } from './store';
 
 // not used in production
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -50,10 +51,12 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
         maxAge: 10
     }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule,
     environment.development ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [
-    { provide: 'API_URL', useValue: 'http://localhost:3000' }
+    { provide: 'API_URL', useValue: 'http://localhost:3000' },
+    { provide: RouterStateSerializer, useClass: CustomSerializer }
   ],
   bootstrap: [AppComponent]
 })
