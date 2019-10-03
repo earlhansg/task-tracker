@@ -32,22 +32,22 @@ export class ColumnComponent implements AfterContentInit {
               private activeRoute: ActivatedRoute) {}
 
   ngAfterContentInit() {
-    this.fetchUser();
+    // this.fetchUser();
     this.fetchTicket();
   }
 
-  fetchUser() {
-    // tslint:disable-next-line:no-string-literal
-    this.mockUsers = this.activeRoute.snapshot.data['users'];
-    const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);
-    this.userMap = new Map<number, User> (myMap);
-  }
+  // fetchUser() {
+  //   // tslint:disable-next-line:no-string-literal
+  //   // this.mockUsers = this.activeRoute.snapshot.data['users'];
+  //   const myMap = this.mockUsers.map<[number, User]>(user => [user.id, user]);
+  //   this.userMap = new Map<number, User> (myMap);
+  // }
 
   createTicket(ticket: Ticket) {
     const ticketFactory = this.resolver.resolveComponentFactory(fromComponents.TicketComponent);
     const componentRef = this.container.createComponent(ticketFactory);
     componentRef.instance.ticket = ticket;
-    componentRef.instance.users = this.userMap;
+    // componentRef.instance.users = this.userMap;
     componentRef.instance.remove.subscribe((removeticket) => this.onRemove(removeticket));
     const instance: fromComponents.TicketComponent = componentRef.instance as fromComponents.TicketComponent;
 

@@ -52,10 +52,10 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.tickets$ = this.store.select(fromStore.getAllTickets);
-    this.store.dispatch(new fromStore.LoadTickets());
+    // this.store.dispatch(new fromStore.LoadTickets());
 
     // tslint:disable-next-line:no-string-literal
-    this.mockData = this.activeRoute.snapshot.data['tickets'];
+    // this.mockData = this.activeRoute.snapshot.data['tickets'];
     this.createTicketfromDialog();
   }
 

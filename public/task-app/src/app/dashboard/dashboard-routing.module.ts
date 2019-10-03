@@ -5,6 +5,9 @@ import { TicketsResolverService, UserResolverService } from '@app/dashboard/serv
 // Containers
 import * as fromContainers from '@app/dashboard/containers';
 
+// Guards
+import * as fromGuards from './store/guards';
+
 const routes: Routes = [
   {
     path: '',
@@ -12,11 +15,12 @@ const routes: Routes = [
     children: [
       {
         path: 'work',
+        canActivate: [fromGuards.TicketsGuard],
         component: fromContainers.WorkContentComponent,
-        resolve: {
-          tickets: TicketsResolverService,
-          users: UserResolverService
-        }
+        // resolve: {
+        //   tickets: TicketsResolverService,
+        //   users: UserResolverService
+        // }
       },
       { path: '', redirectTo: 'work', pathMatch: 'full' }
     ]

@@ -17,6 +17,9 @@ import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+/* Guards */
+import * as fromGuards from '@app/dashboard/store/guards';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,6 +32,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   declarations: [...fromContainers.containers, ...fromComponents.components],
   exports: [...fromContainers.containers, ...fromComponents.components],
+  providers: [...fromGuards.guards],
   entryComponents: [
     fromComponents.TicketComponent
   ]
