@@ -1,7 +1,10 @@
 import { createSelector } from '@ngrx/store';
 
+import * as fromRoot from '@app/store';
 import * as fromFeature from '../reducers';
 import * as fromTickets from '../reducers/tickets.reducer';
+
+import { Ticket } from '@app/dashboard/models';
 
 export const getTicketState = createSelector(
     fromFeature.getTaskState,
@@ -11,6 +14,14 @@ export const getTicketState = createSelector(
 export const getTicketEntities = createSelector(
     getTicketState,
     fromTickets.getTicketsEntities
+);
+
+export const getSelectedTickets = createSelector(
+    getTicketEntities,
+    fromRoot.getRouterState,
+    (entities, router): Ticket => {
+        return router.state && entities[router.state.params.ticketId];
+    }
 );
 
 export const getAllTickets = createSelector(getTicketEntities, entities => {
