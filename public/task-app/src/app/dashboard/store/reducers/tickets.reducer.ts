@@ -47,6 +47,13 @@ export function reducer(
                 entities
             };
         }
+        case fromTickets.LOAD_TICKETS_FAIL: {
+            return {
+              ...state,
+              loading: false,
+              loaded: false,
+            };
+        }
         case fromTickets.CREATE_TICKET_SUCCESS:
         case fromTickets.UPDATE_TICKET_SUCCESS: {
             const ticket = action.payload;
