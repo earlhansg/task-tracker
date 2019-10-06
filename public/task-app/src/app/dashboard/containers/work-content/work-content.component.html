@@ -14,10 +14,15 @@
      fxLayout.gt-xs	="row"
      fxLayout.lt-sm="column"
      fxLayoutAlign.lt-sm="center center">
-    <app-column [columnName]="'Backlog'" [tickets]="(tickets$ | async)"></app-column>
-    <app-column [columnName]="'In Progress'" [tickets]="(tickets$ | async)"></app-column>
-    <app-column [columnName]="'Review'" [tickets]="(tickets$ | async)"></app-column>
-    <!-- {{tickets$ | async }} -->
+    <app-column [columnName]="'Backlog'" 
+                [tickets]="(tickets$ | async)"
+                [users]="(users$ | async)"></app-column>
+    <app-column [columnName]="'In Progress'" 
+                [tickets]="(tickets$ | async)"
+                [users]="(users$ | async)"></app-column>
+    <app-column [columnName]="'Review'" 
+                [tickets]="(tickets$ | async)"
+                [users]="(users$ | async)"></app-column>
 </div>
 <!-- end of class .columns -->
 <ng-template #createTicketForm>

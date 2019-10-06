@@ -1,11 +1,10 @@
 import { Component, ViewChildren, QueryList, OnInit, AfterViewInit,
          OnDestroy, TemplateRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 /* components  */
 import * as dashboardComponent from '@app/dashboard/components';
 import * as sharedComponent from '@app/shared/components';
 /* interface */
-import { Ticket } from '@app/dashboard/models';
+import { Ticket, User } from '@app/dashboard/models';
 /* enum */
 import { Column } from '@app/dashboard/enums/column.enum';
 /* icons */
@@ -43,19 +42,16 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   createTicketFormTemplate: TemplateRef<dashboardComponent.CreateTicketFormComponent>;
 
   tickets$: Observable<Ticket[]>;
+  users$: Observable<User[]>;
 
   constructor(public dialog: MatDialog,
               private snackBar: MatSnackBar,
               private formService: FormService,
-              private activeRoute: ActivatedRoute,
               private store: Store<fromStore.TaskState>) {}
 
   ngOnInit() {
     this.tickets$ = this.store.select(fromStore.getAllTickets);
-    // this.store.dispatch(new fromStore.LoadTickets());
-
-    // tslint:disable-next-line:no-string-literal
-    // this.mockData = this.activeRoute.snapshot.data['tickets'];
+    this.users$ = this.store.select(fromStore.getAllUsers);
     this.createTicketfromDialog();
   }
 

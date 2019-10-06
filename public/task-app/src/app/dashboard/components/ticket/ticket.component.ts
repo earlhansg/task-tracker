@@ -21,7 +21,7 @@ export class TicketComponent implements OnInit {
   faEllipsisV = faEllipsisV;
 
   @Input() ticket: Ticket;
-  // @Input() users: Map<number, User>;
+  @Input() users: Map<number, User>;
   @Output() remove = new EventEmitter();
 
   columns = [
