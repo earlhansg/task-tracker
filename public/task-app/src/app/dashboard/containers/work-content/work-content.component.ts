@@ -94,6 +94,7 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
+    console.log('adticket', item);
     this.columns
         .forEach((val) => val.columnName === item.columnName
         ? val.createTicket(item) : null);
@@ -102,6 +103,7 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
       data: `${item.name} ticket ${message}`,
       duration: 2500
     });
+    this.store.dispatch(new fromStore.CreateTicket(item));
   }
 
 }

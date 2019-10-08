@@ -6,6 +6,7 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 
 import * as ticketActions from '../actions/tickets.action';
 import * as fromServices from '@app/dashboard/services';
+import * as fromRoot from '@app/store';
 
 @Injectable()
 export class TicketsEffects {
@@ -39,4 +40,16 @@ createTicket$ = this.actions$.pipe(
         );
     })
 );
+
+// @Effect()
+//   createTicketSuccess$ = this.actions$.pipe(
+//     ofType(ticketActions.CREATE_TICKET_SUCCESS),
+//     map((action: ticketActions.CreateTicketSuccess) => action.payload),
+//     map(pizza => {
+//         return new fromRoot.Go({
+//           path: ['/work']
+//         });
+//     })
+// );
+
 }
