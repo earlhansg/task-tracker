@@ -6,10 +6,12 @@ import * as fromComponents from '@app/dashboard/components';
 /* interface */
 import { Ticket, User } from '@app/dashboard/models';
 /* icons */
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faCog } from '@fortawesome/free-solid-svg-icons';
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
+
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
@@ -25,14 +27,18 @@ export class ColumnComponent implements AfterContentInit {
   @ViewChild('container', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
   faArrowDown = faArrowDown;
+  faCog = faCog;
   createdTickets = [];
   mockUsers: User[];
+  loading: Observable<boolean>;
   userMap: Map<number, User>;
 
   constructor(private resolver: ComponentFactoryResolver,
               private store: Store<fromStore.TaskState>) {}
 
   ngAfterContentInit() {
+    this.loading = this.store.select(fromStore.getTicketsLoading);
+    console.log('check the status', this.loading);
     this.fetchUser();
     this.fetchTicket();
   }

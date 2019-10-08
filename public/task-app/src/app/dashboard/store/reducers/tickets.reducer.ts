@@ -74,5 +74,5 @@ export function reducer(
 }
 
 export const getTicketsEntities = (state: TicketState) => state.entities;
-export const getTicketsLoading = (state: TicketState) => state.entities;
+export const getTicketsLoading = (state: TicketState) => state.loading;
 export const getTicketsLoaded = (state: TicketState) => state.loaded;
