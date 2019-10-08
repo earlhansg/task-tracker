@@ -41,15 +41,15 @@ createTicket$ = this.actions$.pipe(
     })
 );
 
-// @Effect()
-//   createTicketSuccess$ = this.actions$.pipe(
-//     ofType(ticketActions.CREATE_TICKET_SUCCESS),
-//     map((action: ticketActions.CreateTicketSuccess) => action.payload),
-//     map(pizza => {
-//         return new fromRoot.Go({
-//           path: ['/work']
-//         });
-//     })
-// );
+@Effect()
+  createTicketSuccess$ = this.actions$.pipe(
+    ofType(ticketActions.CREATE_TICKET_SUCCESS),
+    map((action: ticketActions.CreateTicketSuccess) => action.payload),
+    map(pizza => {
+        return new fromRoot.Go({
+          path: ['/dashboard']
+        });
+    })
+);
 
 }

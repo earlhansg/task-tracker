@@ -57,7 +57,10 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.columns.forEach((item) => {
-      item.updated.subscribe(data => this.addTicket(data, 'updateTicket'));
+      item.updated.subscribe(data => {
+        // this.store.dispatch(new fromStore.CreateTicket(data));
+        this.addTicket(data, 'updateTicket');
+      });
     });
   }
 
@@ -88,13 +91,13 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
       const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
       if (ticketStatus) {
         const item: Ticket = {...values.formValues, created, columnName };
+        this.store.dispatch(new fromStore.CreateTicket(item));
         this.addTicket(item, 'addTicket');
       }
     });
   }
 
   addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
-    console.log('adticket', item);
     this.columns
         .forEach((val) => val.columnName === item.columnName
         ? val.createTicket(item) : null);
@@ -103,7 +106,6 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
       data: `${item.name} ticket ${message}`,
       duration: 2500
     });
-    this.store.dispatch(new fromStore.CreateTicket(item));
   }
 
 }

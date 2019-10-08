@@ -20,7 +20,7 @@ export class TicketsService extends RestService {
  }
 
  addTicket(body: Ticket): Observable<Ticket> {
-     return this.request(this.url, HttpMethodEnum.POST);
+     return this.request(this.url, HttpMethodEnum.POST, body);
  }
 
  updateTicket(body: Ticket): Observable<Ticket> {
