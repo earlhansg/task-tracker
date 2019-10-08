@@ -38,7 +38,6 @@ export class ColumnComponent implements AfterContentInit {
 
   ngAfterContentInit() {
     this.loading = this.store.select(fromStore.getTicketsLoading);
-    console.log('check the status', this.loading);
     this.fetchUser();
     this.fetchTicket();
   }

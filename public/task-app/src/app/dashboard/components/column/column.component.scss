@@ -19,6 +19,11 @@ $start-breakpoint: 599px;
         font-size: 15px;
         font-weight: 600;
     }
+    & > fa-icon {
+        margin-left: 50%;
+        margin-right: 50%;
+        color: #8c8c8c;
+    }
 }
 
 .arr-down {
