@@ -42,13 +42,27 @@ createTicket$ = this.actions$.pipe(
 );
 
 @Effect()
-  createTicketSuccess$ = this.actions$.pipe(
+createTicketSuccess$ = this.actions$.pipe(
     ofType(ticketActions.CREATE_TICKET_SUCCESS),
     map((action: ticketActions.CreateTicketSuccess) => action.payload),
     map(pizza => {
         return new fromRoot.Go({
           path: ['/dashboard']
         });
+    })
+);
+
+@Effect()
+updateTickets$ = this.actions$.pipe(
+    ofType(ticketActions.UPDATE_TICKET),
+    map((action: ticketActions.UpdateTicket) => action.payload),
+    switchMap(ticket => {
+        return this.ticketService.updateTicket(ticket)
+        .pipe(
+            // tslint:disable-next-line:no-shadowed-variable
+            map(ticket => new ticketActions.UpdateTicketSuccess(ticket)),
+            catchError(error => of(new ticketActions.UpdateTicketFail(error)))
+        );
     })
 );
 

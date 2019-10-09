@@ -108,7 +108,7 @@
       "description": "create UI for dashboard",
       "created": "08/09/17",
       "assign": 3,
-      "columnName": "Backlog"
+      "columnName": "Review"
     },
     {
       "id": 2,
@@ -135,7 +135,7 @@
       "description": "setup routes in the backend",
       "created": "08/09/17",
       "assign": 7,
-      "columnName": "Backlog"
+      "columnName": "In Progress"
     },
     {
       "id": 5,
@@ -161,8 +161,17 @@
       "description": "Follow the best practices",
       "assign": 3,
       "created": "08/09/17",
-      "columnName": "Backlog",
+      "columnName": "Review",
       "id": 9
+    },
+    {
+      "name": "Finish Dashboard UI",
+      "type": "Design",
+      "description": "improve responsiveness",
+      "assign": 4,
+      "created": "08/09/17",
+      "columnName": "Backlog",
+      "id": 10
     }
   ]
 }

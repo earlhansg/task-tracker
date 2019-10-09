@@ -24,7 +24,7 @@ export class TicketsService extends RestService {
  }
 
  updateTicket(body: Ticket): Observable<Ticket> {
-    return this.request(this.url, HttpMethodEnum.PUT);
+    return this.request(`${this.url}/${body.id}`, HttpMethodEnum.PUT, body);
  }
 
  deleteTicket(id: number): Observable<Ticket> {
