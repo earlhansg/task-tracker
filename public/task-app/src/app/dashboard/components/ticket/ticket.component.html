@@ -13,7 +13,7 @@
                 <img src="{{users.get(ticket.assign).profilePicture.url}}" 
                      alt="{{users.get(ticket.assign).profilePicture.caption}}">
             </button>
-            <small class="task__content__user--date">{{ticket.created}}</small>
+            <small class="task__content__user--date">{{ticket.created | date :'shortDate' }}</small>
         </span>
     </div>
     <!-- end of class task__content -->
