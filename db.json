@@ -109,7 +109,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 3,
       "columnName": "Review",
-      "updated": ""
+      "updated": "2014-01-01T23:28:56.782Z"
     },
     {
       "id": 2,
@@ -119,7 +119,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 1,
       "columnName": "In Progress",
-      "updated": ""
+      "updated": "2014-02-01T23:28:56.782Z"
     },
     {
       "id": 3,
@@ -129,7 +129,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 4,
       "columnName": "Review",
-      "updated": ""
+      "updated": "2014-03-01T23:28:56.782Z"
     },
     {
       "id": 4,
@@ -139,7 +139,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 7,
       "columnName": "In Progress",
-      "updated": ""
+      "updated": "2014-04-01T23:28:56.782Z"
     },
     {
       "id": 5,
@@ -149,7 +149,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 2,
       "columnName": "Backlog",
-      "updated": ""
+      "updated": "2014-05-01T23:28:56.782Z"
     },
     {
       "id": 8,
@@ -159,7 +159,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 1,
       "columnName": "Review",
-      "updated": ""
+      "updated": "2014-06-01T23:28:56.782Z"
     },
     {
       "name": "Normalize Pizza DB",
@@ -169,7 +169,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "columnName": "Review",
       "id": 9,
-      "updated": ""
+      "updated": "2014-07-01T23:28:56.782Z"
     },
     {
       "name": "Finish Dashboard UI",
@@ -179,7 +179,7 @@
       "created": "2014-01-01T23:28:56.782Z",
       "columnName": "Backlog",
       "id": 10,
-      "updated": ""
+      "updated": "2014-08-01T23:28:56.782Z"
     }
   ]
 }
