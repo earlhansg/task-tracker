@@ -58,7 +58,6 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit() {
     this.columns.forEach((item) => {
       item.updated.subscribe(data => {
-        // this.store.dispatch(new fromStore.CreateTicket(data));
         this.store.dispatch(new fromStore.UpdateTicket(data));
         this.addTicket(data, 'updateTicket');
       });

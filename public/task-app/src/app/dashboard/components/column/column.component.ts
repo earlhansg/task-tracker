@@ -60,8 +60,18 @@ export class ColumnComponent implements AfterContentInit {
   }
 
   fetchTicket() {
-      this.tickets.forEach((ticket: Ticket) =>
-      ticket.columnName === this.columnName ? this.createTicket(ticket) : null);
+    this.tickets
+      .sort((curr: Ticket, prev: Ticket) => {
+        return this.sortDate(curr.updated) - this.sortDate(prev.updated);
+      })
+      .map((ticket: Ticket) => {
+        return ticket.columnName === this.columnName ? this.createTicket(ticket) : null;
+      });
+  }
+
+  sortDate(date: string): number {
+    const parseDate = new Date(date.replace(/"/g, ''));
+    return parseDate.getTime();
   }
 
 

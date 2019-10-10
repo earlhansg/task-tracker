@@ -36,7 +36,9 @@ export class TicketComponent implements OnInit {
 
   moveTicket(event) {
     const columnName = event;
-    this.remove.emit({...this.ticket, columnName});
+    const date = new Date();
+    const updated = JSON.stringify(date);
+    this.remove.emit({...this.ticket, columnName, updated});
   }
 
 }

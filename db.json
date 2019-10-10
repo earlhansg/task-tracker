@@ -108,8 +108,8 @@
       "description": "create UI for dashboard",
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 3,
-      "columnName": "Review",
-      "updated": "2014-01-01T23:28:56.782Z"
+      "columnName": "Backlog",
+      "updated": "\"2019-10-10T19:19:44.833Z\""
     },
     {
       "id": 2,
@@ -128,8 +128,8 @@
       "description": "create UI for signup",
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 4,
-      "columnName": "Review",
-      "updated": "2014-03-01T23:28:56.782Z"
+      "columnName": "Backlog",
+      "updated": "\"2019-10-10T19:22:08.762Z\""
     },
     {
       "id": 4,
@@ -148,8 +148,8 @@
       "description": "create function for signup",
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 2,
-      "columnName": "Backlog",
-      "updated": "2014-05-01T23:28:56.782Z"
+      "columnName": "Review",
+      "updated": "\"2019-10-10T19:22:25.412Z\""
     },
     {
       "id": 8,
@@ -177,9 +177,9 @@
       "description": "improve responsiveness",
       "assign": 4,
       "created": "2014-01-01T23:28:56.782Z",
-      "columnName": "Backlog",
+      "columnName": "In Progress",
       "id": 10,
-      "updated": "2014-08-01T23:28:56.782Z"
+      "updated": "\"2019-10-10T19:19:58.562Z\""
     }
   ]
 }
