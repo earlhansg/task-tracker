@@ -6,5 +6,5 @@ export interface Ticket {
     created: string;
     assign: number;
     columnName: 'Backlog' | 'In Progress' | 'Review';
-    updated: string;
+    updated?: string;
 }

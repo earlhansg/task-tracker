@@ -87,7 +87,8 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   createTicketfromDialog() {
     this.subscription = this.formService.getValues().subscribe(values => {
-      const created      = '08/09/17';
+      const date = new Date();
+      const created      = JSON.stringify(date);
       const columnName   = Column.Backlog;
       const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
       if (ticketStatus) {
