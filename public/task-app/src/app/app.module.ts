@@ -20,6 +20,8 @@ import { reducers, effects, CustomSerializer } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 
+import { CoreModule } from '@app/core/core.module';
+
 // this would be done dynamically with webpack for builds
 const environment = {
   development: true,
@@ -38,6 +40,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     BrowserAnimationsModule,
     HttpClientModule,
     AppRouting,
+    CoreModule,
     StoreModule.forRoot(reducers,
       {
         metaReducers,

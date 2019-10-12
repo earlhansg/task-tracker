@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { of, timer } from 'rxjs';
+import { of } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 
 import * as ticketActions from '../actions/tickets.action';
