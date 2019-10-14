@@ -69,4 +69,5 @@ export function reducer(
 export const isAuthenticated = (state: AuthState) => state.authenticated;
 export const isAuthenticatedLoaded = (state: AuthState) => state.loaded;
 export const getAuthenticatedUser = (state: AuthState) => state.user;
+export const getAuthenticationError = (state: AuthState) => state.error;
 export const isLoading = (state: AuthState) => state.loading;
