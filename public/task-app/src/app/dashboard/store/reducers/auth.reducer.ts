@@ -39,14 +39,16 @@ export function reducer(
                 user: action.payload.user
               });
         }
-        case fromAuth.AUTHENTICATE_FAIL: {
+        case fromAuth.AUTHENTICATE_FAIL:
+        case fromAuth.SIGN_UP_ERROR: {
             return Object.assign({}, state, {
                 authenticated: false,
                 error: action.payload.error.message,
                 loading: false
               });
         }
-        case fromAuth.AUTHENTICATE_SUCCESS: {
+        case fromAuth.AUTHENTICATE_SUCCESS:
+        case fromAuth.SIGN_UP_SUCCESS: {
             const user: User = action.payload.user;
 
             // verify user is not null
@@ -61,6 +63,13 @@ export function reducer(
                 user
             });
         }
+        case fromAuth.SIGN_UP: {
+            return Object.assign({}, state, {
+                authenticated: false,
+                error: undefined,
+                loading: true
+            });
+        }
     }
 
     return state;
@@ -71,3 +80,4 @@ export const isAuthenticatedLoaded = (state: AuthState) => state.loaded;
 export const getAuthenticatedUser = (state: AuthState) => state.user;
 export const getAuthenticationError = (state: AuthState) => state.error;
 export const isLoading = (state: AuthState) => state.loading;
+export const signUpError = (state: AuthState) => state.error;
