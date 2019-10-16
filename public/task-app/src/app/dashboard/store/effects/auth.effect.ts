@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
 // import @ngrx
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
+import { debounceTime, map, switchMap, catchError } from 'rxjs/operators';
 
 import * as authActions from '../actions/auth.action';
 import * as fromCore from '@app/core/auth/auth.service';
-import { debounceTime, map, switchMap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class AuthEffects {
@@ -43,4 +43,19 @@ createUser = this.actions$.pipe(
         );
     })
 );
+
+@Effect()
+signOut = this.actions$.pipe(
+    ofType(authActions.SIGN_OUT),
+    debounceTime(500),
+    map((action: authActions.SignOut) => action.payload),
+    switchMap(payload => {
+        return this.authService.signout()
+        .pipe(
+            map(value => new authActions.SignOutSuccess()),
+            catchError(error => of ( new authActions.SignOutError({ error })))
+        );
+    })
+);
+
 }
