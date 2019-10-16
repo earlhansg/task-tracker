@@ -72,19 +72,19 @@ export class SignUpSuccess implements Action {
 }
 
 export class SignOut implements Action {
-    readonly type = SIGN_UP;
+    readonly type = SIGN_OUT;
 
     constructor(public payload?: any) {}
 }
 
 export class SignOutError implements Action {
-    readonly type = SIGN_UP_ERROR;
+    readonly type = SIGN_OUT_ERROR;
 
     constructor(public payload?: any) {}
 }
 
 export class SignOutSuccess implements Action {
-    readonly type = SIGN_UP_SUCCESS;
+    readonly type = SIGN_OUT_SUCCESS;
 
     constructor(public payload?: any) {}
 }
