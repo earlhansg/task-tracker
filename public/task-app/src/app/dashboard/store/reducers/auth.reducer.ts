@@ -70,6 +70,20 @@ export function reducer(
                 loading: true
             });
         }
+        case fromAuth.SIGN_OUT_ERROR: {
+            return Object.assign({}, state, {
+                authenticated: true,
+                error: action.payload.error.message,
+                user: undefined
+            });
+        }
+        case fromAuth.SIGN_OUT_SUCCESS: {
+            return Object.assign({}, state, {
+                authenticated: false,
+                error: undefined,
+                user: undefined
+            });
+        }
     }
 
     return state;
@@ -81,3 +95,4 @@ export const getAuthenticatedUser = (state: AuthState) => state.user;
 export const getAuthenticationError = (state: AuthState) => state.error;
 export const isLoading = (state: AuthState) => state.loading;
 export const signUpError = (state: AuthState) => state.error;
+export const signOutError = (state: AuthState) => state.error;
