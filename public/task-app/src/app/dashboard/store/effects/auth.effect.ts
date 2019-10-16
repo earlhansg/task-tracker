@@ -30,4 +30,18 @@ authenticate = this.actions$.pipe(
         );
     })
 );
+
+@Effect()
+createUser = this.actions$.pipe(
+    ofType(authActions.SIGN_UP),
+    debounceTime(500),
+    map((action: authActions.SignUp) => action.payload),
+    switchMap(payload => {
+        return this.authService.create(payload.user)
+        .pipe(
+            map(user => new authActions.SignUpSuccess({ user })),
+            catchError(error => of( new authActions.SignUpError(error)))
+        );
+    })
+);
 }
