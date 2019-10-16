@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 
 // import @ngrx
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
 import * as authActions from '../actions/auth.action';

@@ -12,6 +12,9 @@ export const AUTHENTICATED_SUCCESS = '[User] Authenticated Success';
 export const SIGN_UP = '[User] Sign up';
 export const SIGN_UP_ERROR = '[User] Sign up error';
 export const SIGN_UP_SUCCESS = '[User] Sign up success';
+export const SIGN_OUT = '[User] Sign out';
+export const SIGN_OUT_ERROR = '[User] Sign out error';
+export const SIGN_OUT_SUCCESS = '[User] Sign out success';
 
 
 export class Authenticate implements Action {
@@ -68,6 +71,24 @@ export class SignUpSuccess implements Action {
     constructor(public payload: { user: User }) {}
 }
 
+export class SignOut implements Action {
+    readonly type = SIGN_UP;
+
+    constructor(public payload?: any) {}
+}
+
+export class SignOutError implements Action {
+    readonly type = SIGN_UP_ERROR;
+
+    constructor(public payload?: any) {}
+}
+
+export class SignOutSuccess implements Action {
+    readonly type = SIGN_UP_SUCCESS;
+
+    constructor(public payload?: any) {}
+}
+
 // authenticate type
 export type AuthAction =
 | Authenticate
@@ -78,4 +99,7 @@ export type AuthAction =
 | AuthenticationError
 | SignUp
 | SignUpError
-| SignUpSuccess;
+| SignUpSuccess
+| SignOut
+| SignOutError
+| SignOutSuccess;
