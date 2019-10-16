@@ -14,3 +14,4 @@ export const isAuthenticated = createSelector(getAuthState, fromAuth.isAuthentic
 export const isAuthenticatedLoaded = createSelector(getAuthState, fromAuth.isAuthenticatedLoaded);
 export const isAuthenticationLoading = createSelector(getAuthState, fromAuth.isLoading);
 export const signUpError = createSelector(getAuthState, fromAuth.signUpError);
+export const signOutError = createSelector(getAuthState, fromAuth.signOutError);
