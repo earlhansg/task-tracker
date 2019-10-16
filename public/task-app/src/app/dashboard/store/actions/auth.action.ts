@@ -9,6 +9,10 @@ export const AUTHENTICATE_SUCCESS = '[User] Authenticate Success';
 export const AUTHENTICATED = '[User] Authenticate';
 export const AUTHENTICATED_FAIL = '[User] Authenticated Fail';
 export const AUTHENTICATED_SUCCESS = '[User] Authenticated Success';
+export const SIGN_UP = '[User] Sign up';
+export const SIGN_UP_ERROR = '[User] Sign up error';
+export const SIGN_UP_SUCCESS = '[User] Sign up success';
+
 
 export class Authenticate implements Action {
     readonly type = AUTHENTICATE;
@@ -46,6 +50,24 @@ export class AuthenticationError implements Action {
     constructor(public payload?: any) {}
 }
 
+export class SignUp implements Action {
+    readonly type = SIGN_UP;
+
+    constructor(public payload: { user: User }) {}
+}
+
+export class SignUpError implements Action {
+    readonly type = SIGN_UP_ERROR;
+
+    constructor(public payload?: any) {}
+}
+
+export class SignUpSuccess implements Action {
+    readonly type = SIGN_UP_SUCCESS;
+
+    constructor(public payload: { user: User }) {}
+}
+
 // authenticate type
 export type AuthAction =
 | Authenticate
@@ -53,4 +75,7 @@ export type AuthAction =
 | AuthenticatedSuccess
 | AuthenticatedError
 | AuthenticationSuccess
-| AuthenticationError;
+| AuthenticationError
+| SignUp
+| SignUpError
+| SignUpSuccess;
