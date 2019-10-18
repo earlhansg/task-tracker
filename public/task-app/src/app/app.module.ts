@@ -22,6 +22,9 @@ import { storeFreeze } from 'ngrx-store-freeze';
 
 import { CoreModule } from '@app/core/core.module';
 
+/* Guards */
+import * as fromGuards from '@app/dashboard/store/guards';
+
 // this would be done dynamically with webpack for builds
 const environment = {
   development: true,
@@ -59,7 +62,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   ],
   providers: [
     { provide: 'API_URL', useValue: 'http://localhost:3000' },
-    { provide: RouterStateSerializer, useClass: CustomSerializer }
+    { provide: RouterStateSerializer, useClass: CustomSerializer },
+    ...fromGuards.guards
   ],
   bootstrap: [AppComponent]
 })

@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: fromContainers.DashboardComponent,
-    canActivate: [fromGuards.AuthenticatedGuard],
+    canActivate: [ fromGuards.AuthenticatedGuard ],
     children: [
       {
         path: 'work',
