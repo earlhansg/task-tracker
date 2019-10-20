@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit,
+         ChangeDetectionStrategy } from '@angular/core';
 
 import { FormComponent } from '@app/shared/components/form/form.component';
 
@@ -9,9 +10,7 @@ import { tabs, Tab } from '@app/home/components/login-signup/login-signup.data';
 // store
 import { Store } from '@ngrx/store';
 import * as fromStore from '@app/dashboard/store';
-import * as fromRoot from '@app/store';
-import { Observable } from 'rxjs';
-import { takeWhile, filter } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-login-signup',
@@ -19,48 +18,34 @@ import { takeWhile, filter } from 'rxjs/operators';
   templateUrl: './login-signup.component.html',
   styleUrls: ['./login-signup.component.scss']
 })
-export class LoginSignupComponent implements OnInit, OnDestroy {
+export class LoginSignupComponent implements OnInit, AfterViewInit {
   @ViewChild(FormComponent, {static: false}) formComponent: FormComponent;
 
   tabs: Tab[] = tabs;
 
-  error: Observable<string>;
+  error: Observable<boolean>;
   loading: Observable<boolean>;
-
-  private alive = true;
+  loaded: Observable<boolean>;
 
   constructor(private store: Store<fromStore.TaskState>) { }
 
   ngOnInit() {
     this.error = this.store.select(fromStore.getAuthenticationError);
-    this.loading = this.store.select(fromStore.isAuthenticationLoading);
-    this.store.select(fromStore.isAuthenticated)
-      .pipe(
-        takeWhile(() => this.alive),
-        filter(authenticated => authenticated)
-      )
-      .subscribe(value => {
-        this.store.dispatch(
-          new fromRoot.Go({
-            path: ['/dashboard']
-          })
-        );
-      });
   }
-
-  ngOnDestroy() {
-    this.alive = false;
+  ngAfterViewInit() {
+    this.formComponent.isLoading = this.store.select(fromStore.isAuthenticationLoading);
   }
 
   selectTab(index: number): void {
     this.formComponent.form.reset();
+    this.error = of(!this.error);
+    this.loaded = of(!this.loaded);
   }
 
   onSubmittedForm(credentials: Credentials): void {
-    console.log('login-signup', credentials);
     const { username, password } = credentials;
     const payload = { username, password };
-
     this.store.dispatch(new fromStore.Authenticate(payload));
+    this.loaded = this.store.select(fromStore.isAuthenticatedLoaded);
   }
 }

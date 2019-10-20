@@ -29,13 +29,15 @@ export function reducer(
             return Object.assign({}, state, {
                 authenticated: false,
                 error: action.payload.error.message,
-                loaded: true
+                loaded: true,
+                loading: false
             });
         }
         case fromAuth.AUTHENTICATED_SUCCESS: {
             return Object.assign({}, state, {
-                authenticated: action.payload.authenticated,
+                authenticated: true,
                 loaded: true,
+                loading: false,
                 user: action.payload.user
               });
         }
@@ -92,7 +94,8 @@ export function reducer(
 export const isAuthenticated = (state: AuthState) => state.authenticated;
 export const isAuthenticatedLoaded = (state: AuthState) => state.loaded;
 export const getAuthenticatedUser = (state: AuthState) => state.user;
-export const getAuthenticationError = (state: AuthState) => state.error;
+export const getAuthenticationError = (state: AuthState) => state.authenticated;
 export const isLoading = (state: AuthState) => state.loading;
+export const isLoaded = (state: AuthState) => state.loaded;
 export const signUpError = (state: AuthState) => state.error;
 export const signOutError = (state: AuthState) => state.error;

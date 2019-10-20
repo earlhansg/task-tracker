@@ -8,6 +8,7 @@ import { debounceTime, map, switchMap, catchError } from 'rxjs/operators';
 
 import * as authActions from '../actions/auth.action';
 import * as fromCore from '@app/core/auth/auth.service';
+import * as fromRoot from '@app/store';
 
 @Injectable()
 export class AuthEffects {
@@ -27,6 +28,17 @@ authenticate = this.actions$.pipe(
             map(user => new authActions.AuthenticatedSuccess({ authenticated: (user !== null ), user })),
             catchError(error => of( new authActions.AuthenticatedError({ error })))
         );
+    })
+);
+
+@Effect()
+authenticateSuccess$ = this.actions$.pipe(
+    ofType(authActions.AUTHENTICATED_SUCCESS),
+    map((action: authActions.AuthenticatedSuccess) => action.payload),
+    map(user => {
+        return new fromRoot.Go({
+            path: ['/dashboard']
+        });
     })
 );
 

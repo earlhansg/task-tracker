@@ -5,7 +5,7 @@ import { User } from '@app/dashboard/models';
 
 export const MOCK_USER = new User();
 MOCK_USER.id = 1;
-MOCK_USER.username = 'foo@test.com';
+MOCK_USER.username = 'password';
 MOCK_USER.firstName = 'Foo';
 MOCK_USER.lastName = 'Bar';
 MOCK_USER.password = 'password';
