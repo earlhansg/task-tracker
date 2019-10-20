@@ -6,6 +6,10 @@ import { Credentials } from '@app/shared/models/credentials/credentials.model';
 
 import { tabs, Tab } from '@app/home/components/login-signup/login-signup.data';
 
+// store
+import { Store } from '@ngrx/store';
+import * as fromStore from '@app/dashboard/store';
+
 @Component({
   selector: 'app-login-signup',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,7 +21,7 @@ export class LoginSignupComponent implements OnInit {
 
   tabs: Tab[] = tabs;
 
-  constructor() { }
+  constructor(private store: Store<fromStore.TaskState>) { }
 
   ngOnInit() {}
 
@@ -27,5 +31,9 @@ export class LoginSignupComponent implements OnInit {
 
   onSubmittedForm(credentials: Credentials): void {
     console.log('login-signup', credentials);
+    const { username, password } = credentials;
+    const payload = { username, password };
+
+    this.store.dispatch(new fromStore.Authenticate(payload));
   }
 }
