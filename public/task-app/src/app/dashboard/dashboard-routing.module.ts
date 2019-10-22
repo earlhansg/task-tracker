@@ -10,14 +10,15 @@ const routes: Routes = [
   {
     path: '',
     component: fromContainers.DashboardComponent,
-    canActivate: [ fromGuards.AuthenticatedGuard ],
+    // canActivate: [ fromGuards.AuthenticatedGuard ],
     children: [
       {
         path: 'work',
         canActivate: [fromGuards.TicketsGuard, fromGuards.UsersGuard],
         component: fromContainers.WorkContentComponent
       },
-      { path: '', redirectTo: 'work', pathMatch: 'full' }
+      { path: '', redirectTo: 'work', pathMatch: 'full' },
+      { path: '**', component: fromContainers.PageNotFoundComponent }
     ]
   }
 ];
