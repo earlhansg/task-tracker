@@ -1,8 +1,29 @@
+@import '../../../../assets/styles/main.scss';
+
+$start-breakpoint: 599px;
+
 .page-not-found {
-    margin-top: 12px;
+    margin-top: 32px;
+    padding: 20px 0 20px 0;
+    text-align: center;
     width: 100%;
+    min-height: 80vh;
+    background-color: white;
+
+    @include media($start-breakpoint) {
+        & {
+            min-height: 50vh;
+        }
+    }    
 
     img {
-        width: 100%;
+        width: 65%;
+
+        @include media($start-breakpoint) {
+            & {
+                width: 100%;
+            }
+        }  
     }
+
 }
