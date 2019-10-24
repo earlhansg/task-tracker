@@ -52,16 +52,16 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.tickets$ = this.store.select(fromStore.getAllTickets);
     this.users$ = this.store.select(fromStore.getAllUsers);
-    this.createTicketfromDialog();
+    // this.createTicketfromDialog();
   }
 
   ngAfterViewInit() {
-    this.columns.forEach((item) => {
-      item.updated.subscribe(data => {
-        this.store.dispatch(new fromStore.UpdateTicket(data));
-        this.addTicket(data, 'updateTicket');
-      });
-    });
+    // this.columns.forEach((item) => {
+    //   item.updated.subscribe(data => {
+    //     this.store.dispatch(new fromStore.UpdateTicket(data));
+    //     this.addTicket(data, 'updateTicket');
+    //   });
+    // });
   }
 
   ngOnDestroy() {
@@ -72,42 +72,42 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(sharedComponent.DialogComponent, {
-      width: '350px',
-      data: { header: this.header, icon: this.icon, template: this.createTicketFormTemplate }
-    });
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(sharedComponent.DialogComponent, {
+  //     width: '350px',
+  //     data: { header: this.header, icon: this.icon, template: this.createTicketFormTemplate }
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.formService.clearValues();
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     this.formService.clearValues();
+  //   });
+  // }
 
-  createTicketfromDialog() {
-    this.subscription = this.formService.getValues().subscribe(values => {
-      const date         = new Date();
-      const created      = JSON.stringify(date);
-      const updated      = JSON.stringify(date);
-      const columnName   = Column.Backlog;
-      const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
-      if (ticketStatus) {
-        const item: Ticket = {...values.formValues, created, columnName, updated };
-        this.store.dispatch(new fromStore.CreateTicket(item));
-        this.addTicket(item, 'addTicket');
-      }
-    });
-  }
+  // createTicketfromDialog() {
+  //   this.subscription = this.formService.getValues().subscribe(values => {
+  //     const date         = new Date();
+  //     const created      = JSON.stringify(date);
+  //     const updated      = JSON.stringify(date);
+  //     const columnName   = Column.Backlog;
+  //     const ticketStatus = values ? !!Object.keys(values.formValues).length : false;
+  //     if (ticketStatus) {
+  //       const item: Ticket = {...values.formValues, created, columnName, updated };
+  //       this.store.dispatch(new fromStore.CreateTicket(item));
+  //       this.addTicket(item, 'addTicket');
+  //     }
+  //   });
+  // }
 
-  addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
-    this.columns
-        .forEach((val) => val.columnName === item.columnName
-        ? val.createTicket(item) : null);
-    const message = type === 'addTicket' ? 'added' : 'updated';
-    this.snackBar.openFromComponent(sharedComponent.SuccessMessageComponent, {
-      data: `${item.name} ticket ${message}`,
-      duration: 2500
-    });
-  }
+  // addTicket(item: Ticket, type: 'addTicket'| 'updateTicket') {
+  //   this.columns
+  //       .forEach((val) => val.columnName === item.columnName
+  //       ? val.createTicket(item) : null);
+  //   const message = type === 'addTicket' ? 'added' : 'updated';
+  //   this.snackBar.openFromComponent(sharedComponent.SuccessMessageComponent, {
+  //     data: `${item.name} ticket ${message}`,
+  //     duration: 2500
+  //   });
+  // }
 
 }

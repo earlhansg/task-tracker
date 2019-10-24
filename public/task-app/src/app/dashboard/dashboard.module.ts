@@ -16,6 +16,7 @@ import * as fromContainers from '@app/dashboard/containers';
 import { DashboardRouting } from '@app/dashboard/dashboard-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 /* Guards */
 import * as fromGuards from '@app/dashboard/store/guards';
@@ -27,6 +28,7 @@ import * as fromGuards from '@app/dashboard/store/guards';
     DashboardRouting,
     SharedModule,
     FlexLayoutModule,
+    DragDropModule,
     StoreModule.forFeature('task', reducers),
     EffectsModule.forFeature(effects),
   ],

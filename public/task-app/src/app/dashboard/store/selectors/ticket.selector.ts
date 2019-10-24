@@ -37,3 +37,28 @@ export const getTicketsLoading = createSelector(
     getTicketState,
     fromTickets.getTicketsLoading
 );
+
+const task = [
+    {
+        title: 'In Progress',
+        id: 'inprogress',
+        task: []
+    },
+    {
+        title: 'Backlog',
+        id: 'backlog',
+        task: []
+    },
+    {
+        title: 'Review',
+        id: 'review',
+        task: []
+    }
+];
+
+export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
+    return tickets.reduce((acc, ticket) => {
+        const acc[ticket.]
+        return acc;
+    }, {});
+});
