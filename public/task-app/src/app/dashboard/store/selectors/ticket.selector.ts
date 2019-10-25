@@ -46,10 +46,10 @@ export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
             const data = {
                 title: ticket.columnName,
                 id: ticket.columnName.replace(/\s/g, '').toLowerCase(),
-                task: [ticket]
+                tasks: [ticket]
             };
             collection.push(data);
-        } else collection[itemIndex].task.push(ticket);
+        } else collection[itemIndex].tasks.push(ticket);
 
         return collection;
     }, []);

@@ -16,11 +16,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 /* service */
 import { FormService } from '@app/shared/services';
 /* rxjs */
-import { Subscription, Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
+import { takeUntil } from 'rxjs/operators';
 
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-work-content',
   templateUrl: './work-content.component.html',
@@ -33,8 +35,10 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(dashboardComponent.ColumnComponent)
   columns: QueryList<dashboardComponent.ColumnComponent>;
 
+  // private subscription: Subscription;
+  private unsubscribe$ = new Subject<void>();
+
   mockData: Ticket[];
-  subscription: Subscription;
 
   header = 'Create Ticket';
   icon = faStickyNote;
@@ -43,6 +47,7 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   tickets$: Observable<Ticket[]>;
   users$: Observable<User[]>;
+  ticketByGroup;
 
   constructor(public dialog: MatDialog,
               private snackBar: MatSnackBar,
@@ -52,6 +57,10 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.tickets$ = this.store.select(fromStore.getAllTickets);
     this.users$ = this.store.select(fromStore.getAllUsers);
+    this.store
+        .select(fromStore.getTicketsByGroup)
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(group => this.ticketByGroup = group);
     // this.createTicketfromDialog();
   }
 
@@ -66,12 +75,39 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
-    this.subscription.unsubscribe();
-    this.columns.forEach((item) => {
-      item.updated.unsubscribe();
-    });
+    // this.subscription.unsubscribe();
+    // this.columns.forEach((item) => {
+    //   item.updated.unsubscribe();
+    // });
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
+
+  get trackIds(): string[] {
+    return this.ticketByGroup.map(track => track.id);
+  }
+
+  onTalkDrop(event: CdkDragDrop<[]>) {
+    console.log(event);
+    // In case the destination container is different from the previous container, we
+    // need to transfer the given task to the target data array. This happens if
+    // a task has been dropped on a different track.
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+
+    console.log(this.ticketByGroup);
+  }
+
+  onTrackDrop(event: CdkDragDrop<[]>) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  }
   // openDialog(): void {
   //   const dialogRef = this.dialog.open(sharedComponent.DialogComponent, {
   //     width: '350px',
