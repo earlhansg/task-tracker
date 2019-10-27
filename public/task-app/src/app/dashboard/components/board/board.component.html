@@ -1,11 +1,11 @@
 <div class="board" 
      cdkDropList 
-     [cdkDropListData]="ticketByGroup" 
+     [cdkDropListData]="tracks" 
      (cdkDropListDropped)="onTrackDrop($event)" 
      cdkDropListOrientation="horizontal">
 
     <div class="card-list mat-elevation-z1" 
-         *ngFor="let track of ticketByGroup">
+         *ngFor="let track of tracks">
   
       <h2 cdkDragHandle class="mat-h2">{{track.title}}</h2>
   
@@ -24,9 +24,7 @@
                 <div>{{task.description}}</div>
             </mat-card-content>
           </mat-card>
-  
+
       </div>
-  
     </div>
-  
-  </div>
+</div>
