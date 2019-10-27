@@ -5,6 +5,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BoardComponent } from './board/board.component';
+import { TaskComponent } from './task/task.component';
 
 export const components: any[] = [
     ColumnComponent,
@@ -13,7 +14,8 @@ export const components: any[] = [
     TicketComponent,
     TopNavigationComponent,
     UserProfileComponent,
-    BoardComponent
+    BoardComponent,
+    TaskComponent
 ];
 
 export * from './column/column.component';
@@ -23,3 +25,4 @@ export * from './ticket/ticket.component';
 export * from './top-navigation/top-navigation.component';
 export * from './user-profile/user-profile.component';
 export * from './board/board.component';
+export * from './task/task.component';
