@@ -47,7 +47,7 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   tickets$: Observable<Ticket[]>;
   users$: Observable<User[]>;
-  ticketByGroup;
+  ticketByGroup$: Observable<any>;
 
   constructor(public dialog: MatDialog,
               private snackBar: MatSnackBar,
@@ -57,10 +57,11 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.tickets$ = this.store.select(fromStore.getAllTickets);
     this.users$ = this.store.select(fromStore.getAllUsers);
-    this.store
-        .select(fromStore.getTicketsByGroup)
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(group => this.ticketByGroup = group);
+    this.ticketByGroup$ = this.store.select(fromStore.getTicketsByGroup);
+    // this.store
+    //     .select(fromStore.getTicketsByGroup)
+    //     .pipe(takeUntil(this.unsubscribe$))
+    //     .subscribe(group => this.ticketByGroup = group);
     // this.createTicketfromDialog();
   }
 
@@ -78,36 +79,36 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
     // this.subscription.unsubscribe();
     // this.columns.forEach((item) => {
     //   item.updated.unsubscribe();
-    // });
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+    // // });
+    // this.unsubscribe$.next();
+    // this.unsubscribe$.complete();
   }
 
 
-  get trackIds(): string[] {
-    return this.ticketByGroup.map(track => track.id);
-  }
+  // get trackIds(): string[] {
+  //   return this.ticketByGroup.map(track => track.id);
+  // }
 
-  onTalkDrop(event: CdkDragDrop<[]>) {
-    console.log(event);
-    // In case the destination container is different from the previous container, we
-    // need to transfer the given task to the target data array. This happens if
-    // a task has been dropped on a different track.
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
+  // onTalkDrop(event: CdkDragDrop<[]>) {
+  //   console.log(event);
+  //   // In case the destination container is different from the previous container, we
+  //   // need to transfer the given task to the target data array. This happens if
+  //   // a task has been dropped on a different track.
+  //   if (event.previousContainer === event.container) {
+  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  //   } else {
+  //     transferArrayItem(event.previousContainer.data,
+  //       event.container.data,
+  //       event.previousIndex,
+  //       event.currentIndex);
+  //   }
 
-    console.log(this.ticketByGroup);
-  }
+  //   console.log(this.ticketByGroup);
+  // }
 
-  onTrackDrop(event: CdkDragDrop<[]>) {
-    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  }
+  // onTrackDrop(event: CdkDragDrop<[]>) {
+  //   moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  // }
   // openDialog(): void {
   //   const dialogRef = this.dialog.open(sharedComponent.DialogComponent, {
   //     width: '350px',
