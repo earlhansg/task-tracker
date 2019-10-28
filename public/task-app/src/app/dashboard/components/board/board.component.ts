@@ -1,17 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { User } from '@app/dashboard/models';
+
+import * as dashboardComponent from '@app/dashboard/components';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-
+  userMap: Map<number, User>;
+  @Input() users: User[];
   @Input() tracks;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchUser();
+  }
 
   get trackIds(): string[] {
       return this.tracks.map(track => track.id);
@@ -34,5 +40,11 @@ export class BoardComponent implements OnInit {
    onTrackDrop(event: CdkDragDrop<[]>) {
     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
    }
+
+   fetchUser() {
+    // tslint:disable-next-line:no-string-literal
+    const myMap = this.users.map<[number, User]>(user => [user.id, user]);
+    this.userMap = new Map<number, User> (myMap);
+  }
 
 }

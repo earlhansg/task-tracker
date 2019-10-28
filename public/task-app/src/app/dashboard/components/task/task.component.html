@@ -1,0 +1,19 @@
+
+<div class="task" 
+     fxLayout="row">
+    <div class="task__content" 
+        fxFlex="85" 
+        fxLayout="column">
+    <h4>{{task.name}}</h4>
+    <h5>{{task.type}}</h5>
+    <h5>{{task.description}}</h5>
+    <span class="task__content__user">
+        <button mat-icon-button>
+            <img src="{{users.get(task.assign).profilePicture.url}}" 
+                    alt="{{users.get(task.assign).profilePicture.caption}}">
+        </button>
+        <small class="task__content__user--date">{{task.created | date :'shortDate' }}</small>
+    </span>
+    </div>
+    <!-- end of class task__content -->
+</div>

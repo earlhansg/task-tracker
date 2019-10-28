@@ -25,7 +25,8 @@
                 [users]="(users$ | async)"></app-column>
 </div> -->
 
-<app-board [tracks]="(ticketByGroup$ | async)"></app-board>
+<app-board [tracks]="(ticketByGroup$ | async)"
+           [users]="(users$ | async)"></app-board>
 
 <!-- end of class .columns -->
 <ng-template #createTicketForm>
