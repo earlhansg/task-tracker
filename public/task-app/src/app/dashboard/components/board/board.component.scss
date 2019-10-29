@@ -1,9 +1,13 @@
+@import '../../../../assets/styles/main.scss';
+
+$start-breakpoint: 599px;
 
 .board {
     // Flexbox styling that defines the direction in which the content is flowing.
     // Also makes it easier to stretch the lists to the height of the screen later on.
     display: flex;
     flex-direction: row;
+    justify-content: center;
   
     // Ensure that the board covers the viewport and add some padding to make it look better.
     width: 100%;
@@ -14,6 +18,10 @@
     // Only allow horizontal scrolling.
     overflow-x: auto;
     overflow-y: hidden;
+
+    @include media($start-breakpoint) {
+      justify-content:left;
+    }
   }
   
   .card-list {
@@ -35,10 +43,12 @@
     // Makes it possible for the `card-list-content ` to take up the remaining space.
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   
-    h2 {
+    h4 {
       // Extra spacing to make things look better.
-      margin-bottom: 5px;
+      margin: 2px 0 5px 0;
     }
   
     button {
@@ -68,4 +78,5 @@
 
   .mat-card {
     margin: 10px;
+    width: 220px;
   }
