@@ -38,19 +38,41 @@ export const getTicketsLoading = createSelector(
     fromTickets.getTicketsLoading
 );
 
+// export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
+//     return tickets.reduce((collection, ticket) => {
+//         const itemIndex = collection.findIndex(({title}) => title === ticket.columnName);
+
+//         if (itemIndex < 0) {
+//             const data = {
+//                 title: ticket.columnName,
+//                 id: ticket.columnName.replace(/\s/g, '').toLowerCase(),
+//                 tasks: [ticket]
+//             };
+//             collection.push(data);
+//         } else collection[itemIndex].tasks.push(ticket);
+
+//         return collection;
+//     }, []);
+// });
+
+const track = [
+    {
+        title: 'Backlog',
+        id: 'backlog',
+        task: []
+    },
+    {
+        title: 'In Progress',
+        id: 'inprogress',
+        task: []
+    },
+    {
+        title: 'Review',
+        id: 'review',
+        task: []
+    }
+];
+
 export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
-    return tickets.reduce((collection, ticket) => {
-        const itemIndex = collection.findIndex(({title}) => title === ticket.columnName);
-
-        if (itemIndex < 0) {
-            const data = {
-                title: ticket.columnName,
-                id: ticket.columnName.replace(/\s/g, '').toLowerCase(),
-                tasks: [ticket]
-            };
-            collection.push(data);
-        } else collection[itemIndex].tasks.push(ticket);
-
-        return collection;
-    }, []);
+    return 
 });
