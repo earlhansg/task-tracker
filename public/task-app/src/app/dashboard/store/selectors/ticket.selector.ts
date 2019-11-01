@@ -59,20 +59,32 @@ const track = [
     {
         title: 'Backlog',
         id: 'backlog',
-        task: []
+        tasks: []
     },
     {
         title: 'In Progress',
         id: 'inprogress',
-        task: []
+        tasks: []
     },
     {
         title: 'Review',
         id: 'review',
-        task: []
+        tasks: []
     }
 ];
 
 export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
-    return 
+    tickets.map((collection) => {
+        const itemIndex = track.findIndex(({ title }) => title === collection.columnName);
+        if (itemIndex < 0) {
+            const data = {
+                title: collection.columnName,
+                id: collection.columnName.replace(/\s/g, '').toLowerCase(),
+                tasks: [collection]
+            };
+            track.push(data);
+        } else track[itemIndex].tasks.push(collection);
+    });
+
+    return track;
 });

@@ -103,36 +103,25 @@
   "tickets": [
     {
       "id": 1,
-      "name": "Dashboard UI",
-      "type": "UI",
-      "description": "create UI for dashboard",
+      "name": "DB",
+      "type": "Backend",
+      "description": "update fields",
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 3,
-      "columnName": "Backlog",
-      "updated": "\"2019-10-10T19:19:44.833Z\""
+      "columnName": "Backlog"
     },
     {
       "id": 2,
-      "name": "Login",
-      "type": "Functionality",
-      "description": "create function for login",
-      "created": "2014-01-01T23:28:56.782Z",
-      "assign": 1,
-      "columnName": "In Progress",
-      "updated": "2014-02-01T23:28:56.782Z"
-    },
-    {
-      "id": 3,
       "name": "Signup UI",
       "type": "UI",
       "description": "create UI for signup",
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 4,
-      "columnName": "Backlog",
+      "columnName": "In Progress",
       "updated": "\"2019-10-10T19:22:08.762Z\""
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "Setup routes",
       "type": "Backend",
       "description": "setup routes in the backend",
@@ -142,7 +131,7 @@
       "updated": "2014-04-01T23:28:56.782Z"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Signup",
       "type": "Functionality",
       "description": "create function for signup",
@@ -152,13 +141,13 @@
       "updated": "\"2019-10-10T19:22:25.412Z\""
     },
     {
-      "id": 8,
+      "id": 5,
       "name": "Lazy Load",
       "type": "Feature",
       "description": "setup lazy load to the application",
       "created": "2014-01-01T23:28:56.782Z",
       "assign": 1,
-      "columnName": "Review",
+      "columnName": "Backlog",
       "updated": "2014-06-01T23:28:56.782Z"
     },
     {
@@ -168,17 +157,17 @@
       "assign": 3,
       "created": "2014-01-01T23:28:56.782Z",
       "columnName": "Review",
-      "id": 9,
+      "id": 6,
       "updated": "2014-07-01T23:28:56.782Z"
     },
     {
       "name": "Finish Dashboard UI",
       "type": "Design",
       "description": "improve responsiveness",
-      "assign": 4,
+      "assign": 1,
       "created": "2014-01-01T23:28:56.782Z",
-      "columnName": "In Progress",
-      "id": 10,
+      "columnName": "Backlog",
+      "id": 7,
       "updated": "\"2019-10-10T19:19:58.562Z\""
     }
   ]

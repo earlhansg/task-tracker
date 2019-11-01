@@ -14,7 +14,7 @@
            [id]="track.id" 
            [cdkDropListData]="track.tasks"
            [cdkDropListConnectedTo]="trackIds" 
-           (cdkDropListDropped)="onTalkDrop($event)">
+           (cdkDropListDropped)="onTalkDrop($event, track.title, track.tasks)">
   
   
           <!-- <mat-card *ngFor="let task of track.tasks" cdkDrag>
@@ -30,6 +30,8 @@
                 <app-task [task]="task" [users]="userMap"></app-task>
             </mat-card-content>
           </mat-card>
+<!-- 
+          <button (click)="update()">Update</button> -->
 
       </div>
       
