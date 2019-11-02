@@ -74,7 +74,9 @@ const track = [
 ];
 
 export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
-    tickets.map((collection) => {
+    tickets
+    .sort((curr, prev) => curr.columnIndex - prev.columnIndex)
+    .map((collection) => {
         const itemIndex = track.findIndex(({ title }) => title === collection.columnName);
         if (itemIndex < 0) {
             const data = {
