@@ -147,4 +147,8 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   //   });
   // }
 
+  onBeingDestroyed(event) {
+    console.log('checking', event);
+  }
+
 }
