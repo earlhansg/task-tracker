@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter, OnDestroy } from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { User, Ticket } from '@app/dashboard/models';
@@ -15,12 +15,12 @@ import * as fromStore from '../../store';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit, OnDestroy {
   userMap: Map<number, User>;
   @Input() users: User[];
   @Input() tracks;
   updatedTickets = [];
-  // @Output() beingDestroyed = new EventEmitter<any>();
+  @Output() beingDestroyed = new EventEmitter<any>();
   constructor(private store: Store<fromStore.TaskState>,
               private ticketService: fromServices.TicketsService) { }
 
@@ -28,12 +28,17 @@ export class BoardComponent implements OnInit {
     this.fetchUser();
   }
 
+  ngOnDestroy(): void {
+    this.beingDestroyed.emit(this.updatedTickets);
+  }
+
   get trackIds(): string[] {
       return this.tracks.map(track => track.id);
   }
 
   onTalkDrop(event: CdkDragDrop<[]>, title, task: []) {
-
+    console.log('old index', event.previousIndex);
+    console.log('updated index', event.currentIndex);
     if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -43,6 +48,7 @@ export class BoardComponent implements OnInit {
         event.currentIndex);
     }
     this.updateTicket(title, task);
+    console.log(this.updatedTickets);
    }
 
    onTrackDrop(event: CdkDragDrop<[]>) {
@@ -56,12 +62,12 @@ export class BoardComponent implements OnInit {
    }
 
    updateTicket(columnName, task) {
-    task.forEach((item: Ticket) => {
+    task.forEach((item: Ticket, index ) => {
       const findIndex = this.updatedTickets.findIndex(({ id }) => id === item.id);
+      const columnIndex = index;
       if (findIndex < 0 ) {
-        this.updatedTickets.push({...item, columnName });
-      } else this.updatedTickets[findIndex] = {...item, columnName};
+        this.updatedTickets.push({...item, columnName, columnIndex });
+      } else this.updatedTickets[findIndex] = {...item, columnName,  columnIndex};
     });
-    console.log('output', this.updatedTickets);
    }
 }
