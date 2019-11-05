@@ -148,7 +148,10 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   // }
 
   onBeingDestroyed(event) {
-    console.log('checking', event);
+    console.log('uodating', event);
+    event.forEach((eventTicket) => {
+      this.store.dispatch( new fromStore.UpdateTicket(eventTicket));
+    });
   }
 
 }
