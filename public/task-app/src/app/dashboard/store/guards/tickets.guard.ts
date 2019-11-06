@@ -20,9 +20,10 @@ export class TicketsGuard implements CanActivate {
     }
 
     checkStore(): Observable<boolean> {
+        const load = true;
         return this.store.select(fromStore.getTicketsLoaded).pipe(
             tap(loaded => {
-                if (!loaded) {
+                if (!loaded || load) {
                     this.store.dispatch(new fromStore.LoadTickets());
                 }
             }),

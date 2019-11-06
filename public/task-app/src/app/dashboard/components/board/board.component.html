@@ -8,7 +8,7 @@
          *ngFor="let track of tracks">
   
       <h4 cdkDragHandle>{{track.title}}</h4>
-  
+      
       <div class="card-list-content" 
            cdkDropList 
            [id]="track.id" 
@@ -24,15 +24,12 @@
                 <div>{{task.description}}</div>
             </mat-card-content>
           </mat-card> -->
-
           <mat-card *ngFor="let task of track.tasks" cdkDrag>
             <mat-card-content>
                 <app-task [task]="task" [users]="userMap"></app-task>
             </mat-card-content>
           </mat-card>
-<!-- 
-          <button (click)="update()">Update</button> -->
-
+          
       </div>
       
     </div>

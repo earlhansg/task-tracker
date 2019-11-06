@@ -5,8 +5,6 @@ import { User, Ticket } from '@app/dashboard/models';
 
 import * as fromServices from '@app/dashboard/services';
 
-import { Column } from '@app/dashboard/enums/column.enum';
-
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
@@ -19,7 +17,7 @@ export class BoardComponent implements OnInit, OnDestroy {
   userMap: Map<number, User>;
   @Input() users: User[];
   @Input() tracks;
-  updatedTickets = [];
+  updatedTickets: Ticket[];
   @Output() beingDestroyed = new EventEmitter<any>();
   constructor(private store: Store<fromStore.TaskState>,
               private ticketService: fromServices.TicketsService) { }
@@ -33,12 +31,10 @@ export class BoardComponent implements OnInit, OnDestroy {
   }
 
   get trackIds(): string[] {
-      return this.tracks.map(track => track.id);
+      return this.tracks.map((track: Ticket) => track.id);
   }
 
   onTalkDrop(event: CdkDragDrop<[]>, title, task: []) {
-    console.log('old index', event.previousIndex);
-    console.log('updated index', event.currentIndex);
     if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -48,7 +44,6 @@ export class BoardComponent implements OnInit, OnDestroy {
         event.currentIndex);
     }
     this.updateTicket(title, task);
-    console.log(this.updatedTickets);
    }
 
    onTrackDrop(event: CdkDragDrop<[]>) {
@@ -61,7 +56,7 @@ export class BoardComponent implements OnInit, OnDestroy {
     this.userMap = new Map<number, User> (myMap);
    }
 
-   updateTicket(columnName, task) {
+   updateTicket(columnName, task: Ticket[]) {
     task.forEach((item: Ticket, index ) => {
       const findIndex = this.updatedTickets.findIndex(({ id }) => id === item.id);
       const columnIndex = index;

@@ -16,13 +16,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 /* service */
 import { FormService } from '@app/shared/services';
 /* rxjs */
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
-import { takeUntil } from 'rxjs/operators';
 
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-work-content',
   templateUrl: './work-content.component.html',
@@ -147,9 +145,8 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   //   });
   // }
 
-  onBeingDestroyed(event) {
-    console.log('uodating', event);
-    event.forEach((eventTicket) => {
+  onBeingDestroyed(event: Ticket[]) {
+    event.map((eventTicket) => {
       this.store.dispatch( new fromStore.UpdateTicket(eventTicket));
     });
   }

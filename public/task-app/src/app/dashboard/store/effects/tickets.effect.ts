@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { map, switchMap, catchError } from 'rxjs/operators';
+import { map, switchMap, catchError, mergeMap } from 'rxjs/operators';
 
 import * as ticketActions from '../actions/tickets.action';
 import * as fromServices from '@app/dashboard/services';
@@ -56,7 +56,7 @@ createTicketSuccess$ = this.actions$.pipe(
 updateTickets$ = this.actions$.pipe(
     ofType(ticketActions.UPDATE_TICKET),
     map((action: ticketActions.UpdateTicket) => action.payload),
-    switchMap(ticket => {
+    mergeMap(ticket => {
         return this.ticketService.updateTicket(ticket)
         .pipe(
             // tslint:disable-next-line:no-shadowed-variable

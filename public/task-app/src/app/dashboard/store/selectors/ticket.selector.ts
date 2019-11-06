@@ -38,6 +38,7 @@ export const getTicketsLoading = createSelector(
     fromTickets.getTicketsLoading
 );
 
+
 // export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
 //     return tickets.reduce((collection, ticket) => {
 //         const itemIndex = collection.findIndex(({title}) => title === ticket.columnName);
