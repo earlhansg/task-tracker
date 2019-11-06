@@ -9,3 +9,9 @@ export interface Ticket {
     columnIndex: number;
     updated?: string;
 }
+
+export interface Track {
+    title: string;
+    id: string;
+    tasks: Ticket[];
+}

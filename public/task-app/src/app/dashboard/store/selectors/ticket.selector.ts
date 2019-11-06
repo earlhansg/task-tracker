@@ -4,7 +4,7 @@ import * as fromRoot from '@app/store';
 import * as fromFeature from '../reducers';
 import * as fromTickets from '../reducers/tickets.reducer';
 
-import { Ticket } from '@app/dashboard/models';
+import { Ticket, Track } from '@app/dashboard/models';
 
 export const getTicketState = createSelector(
     fromFeature.getTaskState,
@@ -38,25 +38,7 @@ export const getTicketsLoading = createSelector(
     fromTickets.getTicketsLoading
 );
 
-
-// export const getTicketsByGroup = createSelector(getAllTickets, tickets => {
-//     return tickets.reduce((collection, ticket) => {
-//         const itemIndex = collection.findIndex(({title}) => title === ticket.columnName);
-
-//         if (itemIndex < 0) {
-//             const data = {
-//                 title: ticket.columnName,
-//                 id: ticket.columnName.replace(/\s/g, '').toLowerCase(),
-//                 tasks: [ticket]
-//             };
-//             collection.push(data);
-//         } else collection[itemIndex].tasks.push(ticket);
-
-//         return collection;
-//     }, []);
-// });
-
-const track = [
+const track: Track[] = [
     {
         title: 'Backlog',
         id: 'backlog',
