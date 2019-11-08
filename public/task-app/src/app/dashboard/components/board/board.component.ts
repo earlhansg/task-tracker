@@ -17,7 +17,7 @@ export class BoardComponent implements OnInit, OnDestroy {
   userMap: Map<number, User>;
   @Input() users: User[];
   @Input() tracks;
-  updatedTickets: Ticket[];
+  updatedTickets: Ticket[] = [];
   @Output() beingDestroyed = new EventEmitter<any>();
   constructor(private store: Store<fromStore.TaskState>,
               private ticketService: fromServices.TicketsService) { }

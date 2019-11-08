@@ -120,7 +120,7 @@
       "assign": 4,
       "columnName": "In Progress",
       "updated": "\"2019-10-10T19:22:08.762Z\"",
-      "columnIndex": 0
+      "columnIndex": 2
     },
     {
       "id": 3,
@@ -131,7 +131,7 @@
       "assign": 7,
       "columnName": "In Progress",
       "updated": "2014-04-01T23:28:56.782Z",
-      "columnIndex": 1
+      "columnIndex": 0
     },
     {
       "id": 4,
@@ -142,7 +142,7 @@
       "assign": 2,
       "columnName": "Review",
       "updated": "\"2019-10-10T19:22:25.412Z\"",
-      "columnIndex": 0
+      "columnIndex": 1
     },
     {
       "id": 5,
@@ -161,7 +161,7 @@
       "description": "Follow the best practices",
       "assign": 3,
       "created": "2014-01-01T23:28:56.782Z",
-      "columnName": "Review",
+      "columnName": "In Progress",
       "id": 6,
       "updated": "2014-07-01T23:28:56.782Z",
       "columnIndex": 1
@@ -172,10 +172,10 @@
       "description": "improve responsiveness",
       "assign": 1,
       "created": "2014-01-01T23:28:56.782Z",
-      "columnName": "Backlog",
+      "columnName": "Review",
       "id": 7,
       "updated": "\"2019-10-10T19:19:58.562Z\"",
-      "columnIndex": 2
+      "columnIndex": 0
     }
   ]
 }
