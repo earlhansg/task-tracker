@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { StorageMap } from '@ngx-pwa/local-storage';
+import { LocalStorage } from '@ngx-pwa/local-storage';
 import { Ticket } from '@app/dashboard/models';
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
-  constructor(private storage: StorageMap) {}
+  constructor(private storage: LocalStorage) {}
 
-  storeUpdate(tickets: Ticket[] ) {
-      this.storage.set('tickets', JSON.stringify(tickets)).subscribe(() => {});
+  storeUpdate(tickets: Ticket[]) {
+      this.storage.setItem('tickets', tickets).subscribe(() => {});
   }
 
-  fetchUpdate() {
-    this.storage.get('tickets').subscribe((data) => {
-        // tslint:disable-next-line:no-unused-expression
-        data;
-    });
+  fetchUpdate(key: string) {
+    return this.storage.getItem(key);
   }
 
   clearUpdate() {

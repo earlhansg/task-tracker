@@ -8,9 +8,12 @@ import { tap, filter, take, switchMap, catchError } from 'rxjs/operators';
 
 import * as fromStore from '../../store';
 
+import * as fromServices from '@app/dashboard/services';
+
 @Injectable()
 export class TicketsGuard implements CanActivate {
-    constructor(private store: Store<fromStore.TaskState>) {}
+    constructor(private store: Store<fromStore.TaskState>,
+                private localStorageService: fromServices.LocalStorageService) {}
 
     canActivate(): Observable<boolean> {
         return this.checkStore().pipe(
@@ -23,6 +26,7 @@ export class TicketsGuard implements CanActivate {
         return this.store.select(fromStore.getTicketsLoaded).pipe(
             tap(loaded => {
                 if (!loaded) {
+                    this.checkLocalStorage();
                     this.store.dispatch(new fromStore.LoadTickets());
                 }
             }),
@@ -30,4 +34,12 @@ export class TicketsGuard implements CanActivate {
             take(1)
         );
     }
+
+    async checkLocalStorage() {
+        if (!!this.localStorageService.fetchUpdate.length) {
+            const updatedTicket = await this.localStorageService.fetchUpdate('tickets').toPromise();
+            console.log(updatedTicket);
+        }
+    }
+
 }

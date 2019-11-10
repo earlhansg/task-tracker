@@ -19,8 +19,7 @@ export class BoardComponent implements OnInit, OnDestroy {
   @Input() tracks;
   updatedTickets: Ticket[] = [];
   @Output() beingDestroyed = new EventEmitter<any>();
-  constructor(private store: Store<fromStore.TaskState>,
-              private ticketService: fromServices.TicketsService) { }
+  constructor(private localStorageService: fromServices.LocalStorageService) { }
 
   ngOnInit() {
     this.fetchUser();
@@ -44,6 +43,7 @@ export class BoardComponent implements OnInit, OnDestroy {
         event.currentIndex);
     }
     this.updateTicket(title, task);
+    this.localStorageService.storeUpdate(this.updatedTickets);
    }
 
    onTrackDrop(event: CdkDragDrop<[]>) {
