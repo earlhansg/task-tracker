@@ -7,7 +7,7 @@ export class LocalStorageService {
   constructor(private storage: StorageMap) {}
 
   storeUpdate(tickets: Ticket[] ) {
-      this.storage.set('tickets', tickets).subscribe(() => {});
+      this.storage.set('tickets', JSON.stringify(tickets)).subscribe(() => {});
   }
 
   fetchUpdate() {
