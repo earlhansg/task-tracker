@@ -20,6 +20,8 @@ import { Observable, Subject, of } from 'rxjs';
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
+import { async } from '@angular/core/testing';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-work-content',
@@ -46,6 +48,7 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   tickets$: Observable<Ticket[]>;
   users$: Observable<User[]>;
   ticketByGroup$: Observable<any>;
+  loaded$: Observable<boolean>;
 
   constructor(public dialog: MatDialog,
               private snackBar: MatSnackBar,
@@ -54,8 +57,9 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.tickets$ = this.store.select(fromStore.getAllTickets);
+    this.loaded$ = this.store.select(fromStore.getTicketsLoaded);
     this.users$ = this.store.select(fromStore.getAllUsers);
-    this.ticketByGroup$ = this.store.select(fromStore.getTicketsByGroup);
+    // this.ticketByGroup$ = this.store.select(fromStore.getTicketsByGroup);
     // this.store
     //     .select(fromStore.getTicketsByGroup)
     //     .pipe(takeUntil(this.unsubscribe$))

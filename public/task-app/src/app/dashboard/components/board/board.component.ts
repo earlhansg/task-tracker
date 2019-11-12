@@ -8,6 +8,8 @@ import * as fromServices from '@app/dashboard/services';
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
+import { take, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -16,17 +18,27 @@ import * as fromStore from '../../store';
 export class BoardComponent implements OnInit, OnDestroy {
   userMap: Map<number, User>;
   @Input() users: User[];
-  @Input() tracks;
+  // @Input() tracks;
+  tracks;
   updatedTickets: Ticket[] = [];
+  // private unsubscribe$ = new Subject<void>();
   @Output() beingDestroyed = new EventEmitter<any>();
-  constructor(private localStorageService: fromServices.LocalStorageService) { }
+  constructor(private localStorageService: fromServices.LocalStorageService,
+              private store: Store<fromStore.TaskState>) { }
 
   ngOnInit() {
     this.fetchUser();
+    this.store.select(fromStore.getTicketsByGroup)
+      .pipe(
+        take(1)
+      )
+      .subscribe(data => this.tracks = data);
   }
 
   ngOnDestroy(): void {
     this.beingDestroyed.emit(this.updatedTickets);
+    // this.unsubscribe$.next();
+    // this.unsubscribe$.complete();
   }
 
   get trackIds(): string[] {

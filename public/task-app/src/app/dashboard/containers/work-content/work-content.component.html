@@ -25,8 +25,10 @@
                 [users]="(users$ | async)"></app-column>
 </div> -->
 
-<app-board [tracks]="(ticketByGroup$ | async)"
+<!-- <app-board [tracks]="(ticketByGroup$ | async)"
            [users]="(users$ | async)"
+           (beingDestroyed)="onBeingDestroyed($event)"></app-board> -->
+<app-board [users]="(users$ | async)"
            (beingDestroyed)="onBeingDestroyed($event)"></app-board>
 
 <!-- end of class .columns -->

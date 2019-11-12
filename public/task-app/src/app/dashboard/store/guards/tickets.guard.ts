@@ -9,11 +9,14 @@ import { tap, filter, take, switchMap, catchError } from 'rxjs/operators';
 import * as fromStore from '../../store';
 
 import * as fromServices from '@app/dashboard/services';
+import { Ticket } from '@app/dashboard/models';
 
 @Injectable()
 export class TicketsGuard implements CanActivate {
     constructor(private store: Store<fromStore.TaskState>,
                 private localStorageService: fromServices.LocalStorageService) {}
+
+    done  = false;
 
     canActivate(): Observable<boolean> {
         return this.checkStore().pipe(
@@ -27,7 +30,8 @@ export class TicketsGuard implements CanActivate {
             tap(loaded => {
                 if (!loaded) {
                     this.checkLocalStorage();
-                    this.store.dispatch(new fromStore.LoadTickets());
+                    // this.store.dispatch(new fromStore.LoadTickets());
+                    // this.checkLocalStorage();
                 }
             }),
             filter(loaded => loaded),
@@ -36,10 +40,16 @@ export class TicketsGuard implements CanActivate {
     }
 
     async checkLocalStorage() {
-        if (!!this.localStorageService.fetchUpdate.length) {
-            const updatedTicket = await this.localStorageService.fetchUpdate('tickets').toPromise();
-            console.log(updatedTicket);
+        const updatedTicket: Ticket[] = await this.localStorageService.fetchUpdate('tickets').toPromise();
+        if (updatedTicket) {
+            updatedTicket.forEach((updated: Ticket) => {
+                this.store.dispatch(new fromStore.UpdateTicket(updated));
+                this.store.dispatch(new fromStore.LoadTickets());
+            });
+            // this.localStorageService.clearUpdate();
+            // this.store.dispatch(new fromStore.LoadTickets());
         }
+        // this.store.dispatch(new fromStore.LoadTickets());
     }
 
 }
