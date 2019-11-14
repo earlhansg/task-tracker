@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private breakpointsSubcription$: Subscription;
   isSmallScreen: boolean;
 
-  constructor( private breakPointsService: BreakPointsService ) { }
+  constructor( private breakPointsService: BreakPointsService) { }
 
   ngOnInit() {
     this.breakpointsSubcription$ = this.breakPointsService

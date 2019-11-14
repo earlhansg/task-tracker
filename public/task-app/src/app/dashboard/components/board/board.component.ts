@@ -1,15 +1,12 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { User, Ticket } from '@app/dashboard/models';
 
-import * as fromServices from '@app/dashboard/services';
-
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
-import { take, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { take, delay } from 'rxjs/operators';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -18,13 +15,11 @@ import { Subject } from 'rxjs';
 export class BoardComponent implements OnInit, OnDestroy {
   userMap: Map<number, User>;
   @Input() users: User[];
-  // @Input() tracks;
   tracks;
   updatedTickets: Ticket[] = [];
   // private unsubscribe$ = new Subject<void>();
   @Output() beingDestroyed = new EventEmitter<any>();
-  constructor(private localStorageService: fromServices.LocalStorageService,
-              private store: Store<fromStore.TaskState>) { }
+  constructor(private store: Store<fromStore.TaskState>) { }
 
   ngOnInit() {
     this.fetchUser();
@@ -55,7 +50,10 @@ export class BoardComponent implements OnInit, OnDestroy {
         event.currentIndex);
     }
     this.updateTicket(title, task);
-    this.localStorageService.storeUpdate(this.updatedTickets);
+
+    this.updatedTickets.forEach((updated: Ticket) => {
+      this.store.dispatch(new fromStore.UpdateTicket(updated));
+    });
    }
 
    onTrackDrop(event: CdkDragDrop<[]>) {

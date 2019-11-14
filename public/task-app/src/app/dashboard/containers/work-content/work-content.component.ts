@@ -21,7 +21,7 @@ import { Observable, Subject, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
 import { async } from '@angular/core/testing';
-import { tap } from 'rxjs/operators';
+import { tap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-work-content',
@@ -57,7 +57,6 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.tickets$ = this.store.select(fromStore.getAllTickets);
-    this.loaded$ = this.store.select(fromStore.getTicketsLoaded);
     this.users$ = this.store.select(fromStore.getAllUsers);
     // this.ticketByGroup$ = this.store.select(fromStore.getTicketsByGroup);
     // this.store
