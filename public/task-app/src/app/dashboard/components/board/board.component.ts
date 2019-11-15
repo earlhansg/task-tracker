@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { User, Ticket } from '@app/dashboard/models';
@@ -6,34 +6,24 @@ import { User, Ticket } from '@app/dashboard/models';
 /* store */
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
-import { take, delay } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-export class BoardComponent implements OnInit, OnDestroy {
+export class BoardComponent implements OnInit {
   userMap: Map<number, User>;
   @Input() users: User[];
   tracks;
   updatedTickets: Ticket[] = [];
-  // private unsubscribe$ = new Subject<void>();
-  @Output() beingDestroyed = new EventEmitter<any>();
   constructor(private store: Store<fromStore.TaskState>) { }
 
   ngOnInit() {
     this.fetchUser();
     this.store.select(fromStore.getTicketsByGroup)
-      .pipe(
-        take(1)
-      )
+      .pipe(take(1))
       .subscribe(data => this.tracks = data);
-  }
-
-  ngOnDestroy(): void {
-    this.beingDestroyed.emit(this.updatedTickets);
-    // this.unsubscribe$.next();
-    // this.unsubscribe$.complete();
   }
 
   get trackIds(): string[] {

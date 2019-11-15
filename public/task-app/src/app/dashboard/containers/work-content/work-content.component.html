@@ -28,8 +28,7 @@
 <!-- <app-board [tracks]="(ticketByGroup$ | async)"
            [users]="(users$ | async)"
            (beingDestroyed)="onBeingDestroyed($event)"></app-board> -->
-<app-board [users]="(users$ | async)"
-           (beingDestroyed)="onBeingDestroyed($event)"></app-board>
+<app-board [users]="(users$ | async)"></app-board>
 
 <!-- end of class .columns -->
 <ng-template #createTicketForm>

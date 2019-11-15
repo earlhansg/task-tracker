@@ -86,30 +86,6 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
-  // get trackIds(): string[] {
-  //   return this.ticketByGroup.map(track => track.id);
-  // }
-
-  // onTalkDrop(event: CdkDragDrop<[]>) {
-  //   console.log(event);
-  //   // In case the destination container is different from the previous container, we
-  //   // need to transfer the given task to the target data array. This happens if
-  //   // a task has been dropped on a different track.
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     transferArrayItem(event.previousContainer.data,
-  //       event.container.data,
-  //       event.previousIndex,
-  //       event.currentIndex);
-  //   }
-
-  //   console.log(this.ticketByGroup);
-  // }
-
-  // onTrackDrop(event: CdkDragDrop<[]>) {
-  //   moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  // }
   // openDialog(): void {
   //   const dialogRef = this.dialog.open(sharedComponent.DialogComponent, {
   //     width: '350px',
@@ -147,12 +123,5 @@ export class WorkContentComponent implements OnInit, OnDestroy, AfterViewInit {
   //     duration: 2500
   //   });
   // }
-
-  onBeingDestroyed(event: Ticket[]) {
-    // console.log('been destroyed');
-    // event.map((eventTicket) => {
-    //   this.store.dispatch( new fromStore.UpdateTicket(eventTicket));
-    // });
-  }
 
 }
